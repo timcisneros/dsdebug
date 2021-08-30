@@ -3,7 +3,7 @@ import ReactFlow, { useStoreActions, Controls } from 'react-flow-renderer';
 
 import StepNode from './NodeTypes/StepNode';
 import DiamondNode from './NodeTypes/DiamondNode';
-import circleNode from './NodeTypes/circleNode';
+import CircleNode from './NodeTypes/CircleNode';
 import GroupNode from './NodeTypes/GroupNode';
 import { useVariable } from '../src/contexts/VariableContext';
 
