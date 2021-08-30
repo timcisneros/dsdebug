@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Handle } from 'react-flow-renderer';
 
-export default memo(({ data }) => {
+export default memo(function CircleNode({ data }) {
     const stepColor = data.label.includes('Start') ? '#80c904' : '#2a9df4';
     return (
         <>

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Handle } from 'react-flow-renderer';
 
-export default memo(({ data }) => {
+export default memo(function DiamondNode({ data }) {
     return (
         <>
             <Handle

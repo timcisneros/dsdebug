@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-export default memo(({ data }) => {
+export default memo(function GroupNode({ data }) {
     return (
         <>
             <div

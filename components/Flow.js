@@ -14,7 +14,7 @@ const nodeTypes = {
     groupNode: GroupNode,
 };
 
-const Flow = () => {
+function Flow() {
     const { selectedVariable, variables, getElements } = useVariable();
     const [elements, setElements] = useState([]);
     const [activeElements, setActiveElements] = useState([]);
@@ -31,7 +31,7 @@ const Flow = () => {
         const elementData = elements.filter((e) => variableData.includes(e.id));
 
         setActiveElements(elementData);
-    }, [selectedVariable]);
+    }, [selectedVariable, variables, elements]);
 
     useEffect(() => {
         setElements(getElements());
@@ -54,6 +54,6 @@ const Flow = () => {
             </ReactFlow>
         </div>
     );
-};
+}
 
 export default Flow;
