@@ -10,7 +10,7 @@ import { useVariable } from '../src/contexts/VariableContext';
 const nodeTypes = {
     stepNode: StepNode,
     diamondNode: DiamondNode,
-    circleNode: circleNode,
+    circleNode: CircleNode,
     groupNode: GroupNode,
 };
 
