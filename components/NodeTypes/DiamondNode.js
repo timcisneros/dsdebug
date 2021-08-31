@@ -14,12 +14,12 @@ export default memo(function DiamondNode({ data }) {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-around',
+                    alignItems: 'center',
                     border: '3px solid #8c8c8c',
                     borderRadius: 2,
-                    textAlign: 'center',
                     fontSize: 10,
-                    width: 100,
-                    height: 100,
+                    width: data.width,
+                    height: data.height,
                     transform: 'rotate(45deg)',
                 }}
             >
@@ -30,7 +30,13 @@ export default memo(function DiamondNode({ data }) {
                 >
                     image
                 </div>
-                <div style={{ transform: 'rotate(-45deg)' }}>{data.label}</div>
+                <div
+                    style={{
+                        transform: 'rotate(-45deg)',
+                    }}
+                >
+                    {data.label}
+                </div>
             </div>
             <Handle
                 type="source"
@@ -38,6 +44,29 @@ export default memo(function DiamondNode({ data }) {
                 id="a"
                 style={{ background: '#555' }}
             />
+            {data.description && (
+                <div
+                    style={{
+                        width: data.width,
+                        height: 0,
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: '123%',
+                            outline: '3px solid white',
+                            padding: 5,
+                            fontSize: 10,
+                            backgroundColor: '#000',
+                            color: '#fff',
+                            borderRadius: 3,
+                        }}
+                    >
+                        {data.description}
+                    </div>
+                </div>
+            )}
         </>
     );
 });

@@ -67,6 +67,7 @@ const VariableProvider = ({ children }) => {
                                 label: c.name.value,
                                 width: c.size.width,
                                 height: c.size.height,
+                                description: c.attrs['.descriptiontext'].text,
                             },
                             position: { x: c.position.x, y: c.position.y },
                         });
