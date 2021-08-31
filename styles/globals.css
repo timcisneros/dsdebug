@@ -17,11 +17,9 @@ a {
 }
 
 .active {
-    font-weight: bold;
+    background-color: #c1c1c1;
 }
 
 .selected {
-    background-color: #3a3a3a;
-    color: white;
-    font-weight: bold;
+    background-color: #fdff6c;
 }

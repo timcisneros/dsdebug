@@ -15,7 +15,8 @@ const nodeTypes = {
 };
 
 function Flow() {
-    const { selectedVariable, variables, getElements } = useVariable();
+    const { selectedVariable, setSelectedVariable, variables, getElements } =
+        useVariable();
     const [elements, setElements] = useState([]);
     const [activeElements, setActiveElements] = useState([]);
 
@@ -41,6 +42,10 @@ function Flow() {
         setSelectedElements(activeElements);
     }, [activeElements, setSelectedElements]);
 
+    const onPaneClick = () => {
+        setSelectedVariable('');
+    };
+
     return (
         <div style={{ height: '100vh' }}>
             <ReactFlow
@@ -49,6 +54,7 @@ function Flow() {
                 elementsSelectable={false}
                 nodesDraggable={false}
                 nodesConnectable={false}
+                onPaneClick={onPaneClick}
             >
                 <Controls />
             </ReactFlow>

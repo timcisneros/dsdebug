@@ -8,11 +8,12 @@ const SideBarItem = ({
 }) => {
     return (
         <div
+            onClick={(e) => selectVariable(e.target.innerText)}
+            className={variableListItem === selectedVariable ? 'active' : ''}
             style={{
                 display: 'flex',
                 alignItems: 'center',
-                margin: 15,
-                cursor: 'pointer',
+                padding: 10,
                 userSelect: 'none',
             }}
         >
@@ -30,20 +31,10 @@ const SideBarItem = ({
                     width: 25,
                     marginRight: 10,
                 }}
-                className={
-                    variableListItem === selectedVariable ? 'active' : ''
-                }
             >
                 {individualVariableData.length}
             </div>
-            <div
-                onClick={(e) => selectVariable(e.target.innerText)}
-                className={
-                    variableListItem === selectedVariable ? 'active' : ''
-                }
-            >
-                {variableListItem}
-            </div>
+            <div style={{ cursor: 'pointer' }}>{variableListItem}</div>
         </div>
     );
 };

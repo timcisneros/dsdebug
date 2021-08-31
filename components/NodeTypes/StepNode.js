@@ -19,8 +19,8 @@ export default memo(function StepNode({ data }) {
                     borderRadius: 2,
                     textAlign: 'center',
                     fontSize: 10,
-                    width: 100,
-                    height: 100,
+                    width: data.width,
+                    height: data.height,
                 }}
             >
                 <div>
@@ -53,6 +53,28 @@ export default memo(function StepNode({ data }) {
                 id="a"
                 style={{ background: '#555' }}
             />
+            {data.description && (
+                <div
+                    style={{
+                        width: data.width,
+                        height: 0,
+                    }}
+                >
+                    <div
+                        style={{
+                            marginTop: 3,
+                            outline: '3px solid white',
+                            padding: 5,
+                            fontSize: 10,
+                            backgroundColor: '#000',
+                            color: '#fff',
+                            borderRadius: 3,
+                        }}
+                    >
+                        {data.description}
+                    </div>
+                </div>
+            )}
         </>
     );
 });
