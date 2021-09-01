@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+import { useZoomPanHelper } from 'react-flow-renderer';
 import { Select } from '@chakra-ui/react';
 import { useVariable } from '../src/contexts/VariableContext';
 
 const WorkflowSelect = () => {
+    const { fitView } = useZoomPanHelper();
     const { setData, dataList } = useVariable();
     const [value, setValue] = useState('');
 
     useEffect(() => {
         setValue(dataList[0]?.name);
-        localStorage.setItem('dataList', JSON.stringify(dataList));
     }, [dataList]);
 
     const handleChange = (e) => {
@@ -17,10 +18,13 @@ const WorkflowSelect = () => {
         setData(foundData.data);
     };
 
+    useEffect(() => {
+        setTimeout(() => fitView(), 1);
+    }, [value]);
+
     return (
         <div style={{ position: 'absolute', top: 20, left: 70, zIndex: 1000 }}>
             <Select
-                className="wf-select"
                 onChange={handleChange}
                 width="25rem"
                 backgroundColor="#ffffff"
