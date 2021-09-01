@@ -8,6 +8,7 @@ export const useVariable = () => {
 };
 
 const VariableProvider = ({ children }) => {
+    const [dataList, setDataList] = useState([]);
     const [data, setData] = useState(initialData);
     const [selectedVariable, setSelectedVariable] = useState(null);
 
@@ -23,7 +24,7 @@ const VariableProvider = ({ children }) => {
 
     const variables = [];
 
-    data.cells?.map(
+    data.cells.map(
         (c) =>
             c.variableUpdates &&
             c.variableUpdates.value.map((cv) =>
@@ -40,6 +41,21 @@ const VariableProvider = ({ children }) => {
 
     useEffect(() => {
         getElements();
+        const startActivity = data.cells.find(
+            (c) => c.activityName === 'StartActivity'
+        );
+
+        const allDataList = [
+            { name: startActivity.workflowName.value, data },
+            ...dataList,
+        ];
+
+        const filteredDataList = allDataList.filter(
+            (adlf, i) =>
+                allDataList.map((adlm) => adlm.name).indexOf(adlf.name) === i
+        );
+
+        setDataList(filteredDataList);
     }, [data]);
 
     const getElements = () => {
@@ -132,10 +148,10 @@ const VariableProvider = ({ children }) => {
     // );
 
     const selectVariable = (v) => {
-        console.log('run');
         setSelectedVariable(v);
     };
     const value = {
+        setData,
         selectedVariable,
         setSelectedVariable,
         selectVariable,
@@ -144,6 +160,7 @@ const VariableProvider = ({ children }) => {
         getElements,
         handleReadFile,
         onReaderLoad,
+        dataList,
     };
 
     return (
