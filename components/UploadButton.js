@@ -30,7 +30,6 @@ const UploadButton = () => {
                 </svg>
             </i>
             <input
-                style={{ position: 'absolute', zIndex: 1000 }}
                 type="file"
                 ref={hiddenFileInput}
                 name="json"
