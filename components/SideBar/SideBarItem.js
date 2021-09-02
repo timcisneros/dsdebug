@@ -1,3 +1,4 @@
+import { Divider, Tooltip } from '@chakra-ui/react';
 import React from 'react';
 
 const SideBarItem = ({
@@ -7,34 +8,51 @@ const SideBarItem = ({
     selectedVariable,
 }) => {
     return (
-        <div
-            onClick={(e) => selectVariable(e.target.innerText)}
-            className={variableListItem === selectedVariable ? 'active' : ''}
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: 10,
-                userSelect: 'none',
-            }}
-        >
+        <div>
             <div
+                onClick={(e) => selectVariable(e.target.innerText)}
+                className={
+                    variableListItem === selectedVariable ? 'active' : ''
+                }
                 style={{
                     display: 'flex',
-                    justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: '#2d2d2d',
-                    color: '#fff',
-                    fontSize: 12,
-                    borderRadius: '100%',
-                    padding: '2px 8px',
-                    height: 25,
-                    width: 25,
-                    marginRight: 10,
+                    paddingLeft: 10,
+                    userSelect: 'none',
                 }}
             >
-                {individualVariableData.length}
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: '#2d2d2d',
+                        color: '#fff',
+                        fontSize: 10,
+                        borderRadius: '100%',
+                        width: 25,
+                        height: 25,
+                        padding: '2px 8px',
+                    }}
+                >
+                    {individualVariableData.length}
+                </div>
+                <div
+                    style={{
+                        cursor: 'pointer',
+                        width: '100%',
+                        padding: 10,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    <Tooltip label={variableListItem}>
+                        {variableListItem}
+                    </Tooltip>
+                </div>
             </div>
-            <div style={{ cursor: 'pointer' }}>{variableListItem}</div>
+            <Divider />
         </div>
     );
 };

@@ -14,7 +14,10 @@ const SideBar = () => {
                 backgroundColor: '#fff',
                 height: '100vh',
                 overflowY: 'scroll',
-                borderLeft: '1px solid #c9c9c9',
+                overflowX: 'hidden',
+                borderLeft: '1px solid #e0e0e0',
+                width: 300,
+                textOverflow: 'ellipsis',
             }}
         >
             {variableList.map((v) => {

@@ -15,35 +15,36 @@ const nodeTypes = {
 };
 
 function Flow() {
-    const { selectedVariable, setSelectedVariable, variables, getElements } =
-        useVariable();
-    const [elements, setElements] = useState([]);
-    const [activeElements, setActiveElements] = useState([]);
+    const {
+        selectedVariable,
+        setSelectedVariable,
+        variables,
+        elements,
+        setElements,
+        activeElements,
+
+        getElements,
+        getElementsFromVariable,
+    } = useVariable();
 
     const setSelectedElements = useStoreActions(
         (actions) => actions.setSelectedElements
     );
 
     useEffect(() => {
-        const variableData = variables
-            .filter((vs) => vs.value === selectedVariable)
-            .map((vd) => vd.id);
+        getElementsFromVariable();
+    }, [selectedVariable]);
 
-        const elementData = elements.filter((e) => variableData.includes(e.id));
-
-        setActiveElements(elementData);
-    }, [selectedVariable, variables, elements]);
-
-    useEffect(() => {
-        setElements(getElements());
-    }, [getElements]);
+    // useEffect(() => {
+    //     setElements(getElements());
+    // }, [getElements]);
 
     useEffect(() => {
         setSelectedElements(activeElements);
     }, [activeElements, setSelectedElements]);
 
     const onPaneClick = () => {
-        setSelectedVariable('');
+        setSelectedVariable(null);
     };
 
     return (

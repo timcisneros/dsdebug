@@ -11,6 +11,8 @@ const VariableProvider = ({ children }) => {
     const [dataList, setDataList] = useState([]);
     const [data, setData] = useState(initialData);
     const [selectedVariable, setSelectedVariable] = useState(null);
+    const [elements, setElements] = useState([]);
+    const [activeElements, setActiveElements] = useState([]);
 
     const handleReadFile = (file) => {
         const reader = new FileReader();
@@ -59,12 +61,12 @@ const VariableProvider = ({ children }) => {
     }, [data]);
 
     const getElements = () => {
-        let initialElements = [];
+        let mappedElements = [];
         try {
             data.cells.map((c, i) => {
                 switch (c.type) {
                     case 'springcm.Step':
-                        return initialElements.push({
+                        return mappedElements.push({
                             id: c.id,
                             type: 'stepNode',
                             data: {
@@ -72,11 +74,13 @@ const VariableProvider = ({ children }) => {
                                 width: c.size.width,
                                 height: c.size.height,
                                 description: c.attrs['.descriptiontext'].text,
+                                vars: c.variableUpdates,
+                                all: c,
                             },
                             position: { x: c.position.x, y: c.position.y },
                         });
                     case 'springcm.Diamond':
-                        return initialElements.push({
+                        return mappedElements.push({
                             id: c.id,
                             type: 'diamondNode',
                             data: {
@@ -88,7 +92,7 @@ const VariableProvider = ({ children }) => {
                             position: { x: c.position.x, y: c.position.y },
                         });
                     case 'springcm.Circle':
-                        return initialElements.push({
+                        return mappedElements.push({
                             id: c.id,
                             type: 'circleNode',
                             data: {
@@ -99,7 +103,7 @@ const VariableProvider = ({ children }) => {
                             position: { x: c.position.x, y: c.position.y },
                         });
                     case 'springcm.Group':
-                        return initialElements.push({
+                        return mappedElements.push({
                             id: c.id,
                             type: 'groupNode',
                             data: {
@@ -110,7 +114,7 @@ const VariableProvider = ({ children }) => {
                             position: { x: c.position.x, y: c.position.y },
                         });
                     case 'springcm.Link':
-                        return initialElements.push({
+                        return mappedElements.push({
                             id: `e-${i}`,
                             type: 'straight',
                             source: c.source.id,
@@ -125,10 +129,22 @@ const VariableProvider = ({ children }) => {
                 }
             });
         } catch (error) {
-            alert('file not readable');
+            alert(error);
         }
 
-        return initialElements;
+        setElements(mappedElements);
+    };
+
+    const getElementsFromVariable = () => {
+        const variableData = variables
+            .filter((vs) => vs.value === selectedVariable)
+            .map((vd) => vd.id);
+
+        const filteredElements = elements.filter((e) =>
+            variableData.includes(e.id)
+        );
+
+        setActiveElements(filteredElements);
     };
 
     // Get variables
@@ -151,16 +167,22 @@ const VariableProvider = ({ children }) => {
         setSelectedVariable(v);
     };
     const value = {
+        data,
         setData,
         selectedVariable,
         setSelectedVariable,
         selectVariable,
+        elements,
+        setElements,
+        activeElements,
+        setActiveElements,
         variables,
         variableList,
         getElements,
         handleReadFile,
         onReaderLoad,
         dataList,
+        getElementsFromVariable,
     };
 
     return (
