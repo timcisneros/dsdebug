@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { useVariable } from '../../src/contexts/VariableContext';
 import SubSideBarItem from '../SubSideBar/SubSideBarItem';
 
 const SubSideBar = () => {
-    const [active, setActive] = useState(false);
     const { selectedVariable, activeElements } = useVariable();
 
     console.log(activeElements[0]?.data.vars);
@@ -37,17 +35,35 @@ const SubSideBar = () => {
                         {ae.data.label}
                     </h1>
                     <div>
-                        {ae.data.vars.value.map((v, i) => (
-                            <SubSideBarItem
-                                key={i}
-                                varConfigure={v.variableToConfigure.value.value}
-                                varValue={
-                                    v.variableValue.value.value ||
-                                    v.variableValue.value
-                                }
-                                selectedVariable={selectedVariable}
-                            />
-                        ))}
+                        {ae.data.vars.value.map((v, i) => {
+                            let varValue = '';
+                            if (v.variableValue.type === 'String') {
+                                varValue = v.variableValue.value;
+                            } else if (v.variableValue.value.type === 'Xml') {
+                                varValue = v.variableValue.value.value;
+                            } else if (v.variableValue.type === 'Expression') {
+                                varValue = `[${v.variableValue.type}]`;
+                            } else if (
+                                v.variableValue.value.type === 'System'
+                            ) {
+                                varValue = v.variableValue.value.value;
+                            } else {
+                                varValue = (
+                                    <i>{`UNHANDLED FORMAT ERROR - type returned: (${v.variableValue.value.type})`}</i>
+                                );
+                            }
+                            console.log(varValue);
+                            return (
+                                <SubSideBarItem
+                                    key={i}
+                                    varConfigure={
+                                        v.variableToConfigure.value.value
+                                    }
+                                    varValue={varValue}
+                                    selectedVariable={selectedVariable}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             ))}
