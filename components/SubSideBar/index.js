@@ -42,10 +42,9 @@ const SubSideBar = () => {
                                 varValue = v.variableValue.value;
                             } else if (v.variableValue.type === 'Expression') {
                                 varValue = (
-                                    <Code
-                                        style={{ overflowWrap: 'anywhere' }}
-                                        children={v.variableValue.value.code}
-                                    />
+                                    <Code style={{ overflowWrap: 'anywhere' }}>
+                                        {v.variableValue.value.code}
+                                    </Code>
                                 );
                             }
                             return (
