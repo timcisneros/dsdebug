@@ -1,10 +1,9 @@
+import { Code } from '@chakra-ui/react';
 import { useVariable } from '../../src/contexts/VariableContext';
 import SubSideBarItem from '../SubSideBar/SubSideBarItem';
 
 const SubSideBar = () => {
     const { selectedVariable, activeElements } = useVariable();
-
-    console.log(activeElements[0]?.data.vars);
 
     return (
         <div
@@ -36,29 +35,23 @@ const SubSideBar = () => {
                     </h1>
                     <div>
                         {ae.data.vars.value.map((v, i) => {
-                            let varValue = '';
+                            let varConfigure =
+                                v.variableToConfigure.value.value;
+                            let varValue = v.variableValue.value.value;
                             if (v.variableValue.type === 'String') {
                                 varValue = v.variableValue.value;
-                            } else if (v.variableValue.value.type === 'Xml') {
-                                varValue = v.variableValue.value.value;
                             } else if (v.variableValue.type === 'Expression') {
-                                varValue = `[${v.variableValue.type}]`;
-                            } else if (
-                                v.variableValue.value.type === 'System'
-                            ) {
-                                varValue = v.variableValue.value.value;
-                            } else {
                                 varValue = (
-                                    <i>{`UNHANDLED FORMAT ERROR - type returned: (${v.variableValue.value.type})`}</i>
+                                    <Code
+                                        style={{ overflowWrap: 'anywhere' }}
+                                        children={v.variableValue.value.code}
+                                    />
                                 );
                             }
-                            console.log(varValue);
                             return (
                                 <SubSideBarItem
                                     key={i}
-                                    varConfigure={
-                                        v.variableToConfigure.value.value
-                                    }
+                                    varConfigure={varConfigure}
                                     varValue={varValue}
                                     selectedVariable={selectedVariable}
                                 />

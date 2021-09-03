@@ -47,9 +47,9 @@ const SideBarItem = ({
                         whiteSpace: 'nowrap',
                     }}
                 >
-                    <Tooltip label={variableListItem}>
-                        {variableListItem}
-                    </Tooltip>
+                    {/* <Tooltip label={variableListItem}> */}
+                    {variableListItem}
+                    {/* </Tooltip> */}
                 </div>
             </div>
             <Divider />

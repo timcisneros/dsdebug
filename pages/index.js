@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Flow from '../components/Flow';
 import SideBar from '../components/SideBar';
 import SubSideBar from '../components/SubSideBar';
@@ -7,6 +8,9 @@ import WorkflowSelect from '../components/WorkflowSelect';
 export default function Home() {
     return (
         <>
+            {/* <Link href="/workflows">
+                <a>Workflows</a>
+            </Link> */}
             <UploadButton />
             <WorkflowSelect />
             <Flow />

@@ -25,13 +25,16 @@ const SideBar = () => {
                     (vs) => vs.value === v
                 );
                 return (
-                    <SideBarItem
-                        key={v}
-                        variableListItem={v}
-                        individualVariableData={individualVariableData}
-                        selectVariable={selectVariable}
-                        selectedVariable={selectedVariable}
-                    />
+                    // v&& deals with error rendering parent variables (removes parent variables)
+                    v && (
+                        <SideBarItem
+                            key={v}
+                            variableListItem={v}
+                            individualVariableData={individualVariableData}
+                            selectVariable={selectVariable}
+                            selectedVariable={selectedVariable}
+                        />
+                    )
                 );
             })}
         </div>

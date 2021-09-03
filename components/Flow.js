@@ -18,12 +18,8 @@ function Flow() {
     const {
         selectedVariable,
         setSelectedVariable,
-        variables,
         elements,
-        setElements,
         activeElements,
-
-        getElements,
         getElementsFromVariable,
     } = useVariable();
 

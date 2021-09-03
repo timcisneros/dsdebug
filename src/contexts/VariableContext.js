@@ -147,22 +147,6 @@ const VariableProvider = ({ children }) => {
         setActiveElements(filteredElements);
     };
 
-    // Get variables
-    // data.cells[140].definedVariables.value.map((v) => console.log(v.value));
-
-    // console.log(data.cells[140].definedVariables.value[2].find(v => v=== ));
-
-    // export const variables =
-    //   data.cells[158].variableUpdates?.value[0].variableToConfigure.value.value;
-
-    // data.cells.map(
-    //   (c) =>
-    //     c.variableUpdates?.value[0] &&
-    //     c.variableUpdates.value.map((cv) =>
-    //       console.log('id:', c.id, 'value:', cv.variableToConfigure.value.value)
-    //     )
-    // );
-
     const selectVariable = (v) => {
         setSelectedVariable(v);
     };
