@@ -1,4 +1,10 @@
-import { useState, createContext, useContext, useEffect } from 'react';
+import {
+    useState,
+    createContext,
+    useContext,
+    useEffect,
+    createRef,
+} from 'react';
 import initialData from '../../data/sample_data.json';
 
 const VariableContext = createContext();

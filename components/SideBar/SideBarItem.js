@@ -10,7 +10,6 @@ const SideBarItem = ({
     return (
         <div>
             <div
-                onClick={(e) => selectVariable(e.target.innerText)}
                 className={
                     variableListItem === selectedVariable ? 'active' : ''
                 }
@@ -38,6 +37,7 @@ const SideBarItem = ({
                     {individualVariableData.length}
                 </div>
                 <div
+                    onClick={(e) => selectVariable(e.target.innerText)}
                     style={{
                         cursor: 'pointer',
                         width: '100%',
