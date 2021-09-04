@@ -14,7 +14,7 @@ const Workflows = () => {
             </Link>
             <Grid templateColumns="repeat(5, 1fr)" gap={6}>
                 {dataList.map((dl) => (
-                    <GridItem>
+                    <GridItem key={dl.name}>
                         <WorkflowItem name={dl.name} />
                     </GridItem>
                 ))}
