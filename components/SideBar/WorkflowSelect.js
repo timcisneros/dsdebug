@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useZoomPanHelper } from 'react-flow-renderer';
 import { Select } from '@chakra-ui/react';
-import { useVariable } from '../src/contexts/VariableContext';
+import { useVariable } from '../../src/contexts/VariableContext';
 
 const WorkflowSelect = () => {
     const { fitView } = useZoomPanHelper();
@@ -25,20 +25,22 @@ const WorkflowSelect = () => {
     }, [value]);
 
     return (
-        <div style={{ position: 'absolute', top: 20, left: 70, zIndex: 1000 }}>
-            <Select
-                onChange={handleChange}
-                width="25rem"
-                backgroundColor="#ffffff"
-                value={value}
-            >
-                {dataList.map((dl) => (
-                    <option key={dl.name} value={dl.name}>
-                        {dl.name}
-                    </option>
-                ))}
-            </Select>
-        </div>
+        <Select
+            zIndex="1000"
+            variant="filled"
+            margin="10px auto 10px auto"
+            textOverflow="ellipsis"
+            onChange={handleChange}
+            width="90%"
+            backgroundColor="#ffffff"
+            value={value}
+        >
+            {dataList.map((dl) => (
+                <option key={dl.name} value={dl.name}>
+                    {dl.name}
+                </option>
+            ))}
+        </Select>
     );
 };
 
