@@ -14,10 +14,12 @@ const VariableProvider = ({ children }) => {
     const [elements, setElements] = useState([]);
     const [activeElements, setActiveElements] = useState([]);
 
-    const handleReadFile = (file) => {
-        const reader = new FileReader();
-        reader.onload = onReaderLoad;
-        reader.readAsText(file);
+    const handleReadFile = (files) => {
+        for (let i = 0; i < files.length; i++) {
+            const reader = new FileReader();
+            reader.onload = onReaderLoad;
+            reader.readAsText(files[i]);
+        }
     };
 
     const onReaderLoad = (event) => {

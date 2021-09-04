@@ -1,6 +1,7 @@
 import SideBarItem from './SideBarItem';
 import { useVariable } from '../../src/contexts/VariableContext';
 import WorkflowSelect from './WorkflowSelect';
+import MoreMenu from './MoreMenu';
 
 const SideBar = () => {
     const { selectedVariable, selectVariable, variables, variableList } =
@@ -21,7 +22,17 @@ const SideBar = () => {
                 textOverflow: 'ellipsis',
             }}
         >
-            <WorkflowSelect />
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 10,
+                }}
+            >
+                <MoreMenu />
+                <WorkflowSelect />
+            </div>
             {variableList.map((v) => {
                 const individualVariableData = variables.filter(
                     (vs) => vs.value === v

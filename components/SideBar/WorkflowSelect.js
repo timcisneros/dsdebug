@@ -26,12 +26,10 @@ const WorkflowSelect = () => {
 
     return (
         <Select
-            zIndex="1000"
             variant="filled"
-            margin="10px auto 10px auto"
             textOverflow="ellipsis"
             onChange={handleChange}
-            width="90%"
+            width="100%"
             backgroundColor="#ffffff"
             value={value}
         >
