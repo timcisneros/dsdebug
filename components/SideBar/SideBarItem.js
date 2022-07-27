@@ -1,5 +1,4 @@
 import { Divider, Tooltip } from '@chakra-ui/react';
-import React from 'react';
 
 const SideBarItem = ({
     variableListItem,

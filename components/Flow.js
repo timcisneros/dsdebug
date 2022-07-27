@@ -6,6 +6,7 @@ import DiamondNode from './NodeTypes/DiamondNode';
 import CircleNode from './NodeTypes/CircleNode';
 import GroupNode from './NodeTypes/GroupNode';
 import { useVariable } from '../src/contexts/VariableContext';
+import { useElement } from '../src/contexts/ElementContext';
 
 const nodeTypes = {
     stepNode: StepNode,
@@ -15,13 +16,10 @@ const nodeTypes = {
 };
 
 function Flow() {
-    const {
-        selectedVariable,
-        setSelectedVariable,
-        elements,
-        activeElements,
-        getElementsFromVariable,
-    } = useVariable();
+    const { selectedVariable, selectVariable, getElementsFromVariable } =
+        useVariable();
+
+    const { elements, activeElements } = useElement();
 
     const setSelectedElements = useStoreActions(
         (actions) => actions.setSelectedElements
@@ -40,7 +38,7 @@ function Flow() {
     }, [activeElements, setSelectedElements]);
 
     const onPaneClick = () => {
-        setSelectedVariable(null);
+        selectVariable(null);
     };
 
     return (

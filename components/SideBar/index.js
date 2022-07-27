@@ -4,8 +4,13 @@ import WorkflowSelect from './WorkflowSelect';
 import MoreMenu from './MoreMenu';
 
 const SideBar = () => {
-    const { selectedVariable, selectVariable, variables, variableList } =
-        useVariable();
+    const {
+        selectedVariable,
+        selectVariable,
+        variables,
+        variableList,
+        unusedVars,
+    } = useVariable();
     return (
         <div
             style={{
@@ -33,15 +38,27 @@ const SideBar = () => {
                 <MoreMenu />
                 <WorkflowSelect />
             </div>
-            {variableList.map((v) => {
+            {variableList.map((v, i) => {
                 const individualVariableData = variables.filter(
-                    (vs) => vs.value === v
+                    (vs) => vs.name === v
                 );
                 return (
                     // v&& deals with error rendering parent variables (removes parent variables)
-                    v && (
+
+                    v && unusedVars ? (
+                        // Update later; pass the filtered variable list to this component rather that handling the filtering here
+                        individualVariableData.length > 0 && (
+                            <SideBarItem
+                                key={i}
+                                variableListItem={v}
+                                individualVariableData={individualVariableData}
+                                selectVariable={selectVariable}
+                                selectedVariable={selectedVariable}
+                            />
+                        )
+                    ) : (
                         <SideBarItem
-                            key={v}
+                            key={i}
                             variableListItem={v}
                             individualVariableData={individualVariableData}
                             selectVariable={selectVariable}

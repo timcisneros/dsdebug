@@ -1,17 +1,17 @@
-import Link from 'next/link';
 import Flow from '../components/Flow';
+import GlobalSearch from '../components/GlobalSearch';
 import SideBar from '../components/SideBar';
 import SubSideBar from '../components/SubSideBar';
+import Test from '../Test';
 
 export default function Home() {
     return (
         <>
-            {/* <Link href="/workflows">
-                <a>Workflows</a>
-            </Link> */}
+            {/* <Test /> */}
             <Flow />
             <SubSideBar />
             <SideBar />
+            <GlobalSearch />
         </>
     );
 }

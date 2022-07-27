@@ -1,9 +1,11 @@
 import { Code } from '@chakra-ui/react';
+import { useElement } from '../../src/contexts/ElementContext';
 import { useVariable } from '../../src/contexts/VariableContext';
 import SubSideBarItem from '../SubSideBar/SubSideBarItem';
 
 const SubSideBar = () => {
-    const { selectedVariable, activeElements } = useVariable();
+    const { selectedVariable } = useVariable();
+    const { activeElements } = useElement();
 
     return (
         <div
@@ -34,7 +36,7 @@ const SubSideBar = () => {
                         {ae.data.label}
                     </h1>
                     <div>
-                        {ae.data.vars.value.map((v, i) => {
+                        {ae.data.vars?.value.map((v, i) => {
                             let varConfigure =
                                 v.variableToConfigure.value.value;
                             let varValue = v.variableValue.value.value;

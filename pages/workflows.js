@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { useVariable } from '../src/contexts/VariableContext';
+import { useData } from '../src/contexts/DataContext';
 import WorkflowItem from '../components/WorkflowItem';
 import { IconButton } from '@chakra-ui/button';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 const Workflows = () => {
-    const { dataList } = useVariable();
+    const { dataList } = useData();
     return (
         <div>
             <Link href="/">
