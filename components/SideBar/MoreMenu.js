@@ -26,7 +26,7 @@ const MoreMenu = () => {
                     <GlobalSearch>Search</GlobalSearch>
                 </MenuItem>
                 <MenuItem>
-                    <Link href="/workflows">
+                    <Link href="/workflows" passHref>
                         <a>Workflow View</a>
                     </Link>
                 </MenuItem>

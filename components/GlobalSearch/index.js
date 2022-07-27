@@ -44,10 +44,9 @@ const GlobalSearch = ({ children }) => {
                 <ModalOverlay />
                 <ModalContent>
                     <InputGroup size="lg" variant="filled">
-                        <InputLeftElement
-                            pointerEvents="none"
-                            children={<SearchIcon color="gray.300" />}
-                        />
+                        <InputLeftElement pointerEvents="none">
+                            <SearchIcon color="gray.300" />
+                        </InputLeftElement>
                         <Input
                             type="text"
                             onChange={(e) =>

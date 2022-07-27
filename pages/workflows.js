@@ -9,7 +9,7 @@ const Workflows = () => {
     const { dataList } = useData();
     return (
         <div>
-            <Link href="/">
+            <Link href="/" passHref>
                 <IconButton icon={<ArrowLeftIcon />} />
             </Link>
             <Grid templateColumns="repeat(5, 1fr)" gap={6}>
