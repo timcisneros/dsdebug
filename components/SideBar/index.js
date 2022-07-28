@@ -40,7 +40,7 @@ const SideBar = () => {
             </div>
             {variableList.map((v, i) => {
                 const individualVariableData = variables.filter(
-                    (vs) => vs.name === v
+                    (vs) => vs.name === v || vs.value.includes(v)
                 );
                 return (
                     // v&& deals with error rendering parent variables (removes parent variables)

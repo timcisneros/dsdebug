@@ -28,6 +28,7 @@ const ElementProvider = ({ children }) => {
                                 height: c.size.height,
                                 description: c.attrs['.descriptiontext'].text,
                                 vars: c.variableUpdates,
+                                documents: c.documents,
                                 all: c,
                             },
                             position: { x: c.position.x, y: c.position.y },
@@ -87,6 +88,8 @@ const ElementProvider = ({ children }) => {
 
         setElements(mappedElements);
     };
+
+    console.log(activeElements);
 
     const value = {
         elements,

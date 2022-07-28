@@ -1,4 +1,3 @@
-import { Code } from '@chakra-ui/react';
 import { useElement } from '../../src/contexts/ElementContext';
 import { useVariable } from '../../src/contexts/VariableContext';
 import SubSideBarItem from '../SubSideBar/SubSideBarItem';
@@ -40,24 +39,34 @@ const SubSideBar = () => {
                             let varConfigure =
                                 v.variableToConfigure.value.value;
                             let varValue = v.variableValue.value.value;
-                            if (v.variableValue.type === 'String') {
+                            const varType = v.variableValue.type;
+                            if (varType === 'String') {
                                 varValue = v.variableValue.value;
-                            } else if (v.variableValue.type === 'Expression') {
-                                varValue = (
-                                    <Code style={{ overflowWrap: 'anywhere' }}>
-                                        {v.variableValue.value.code}
-                                    </Code>
-                                );
+                            } else if (varType === 'Expression') {
+                                varValue = v.variableValue.value.code;
                             }
                             return (
                                 <SubSideBarItem
                                     key={i}
-                                    varConfigure={varConfigure}
-                                    varValue={varValue}
+                                    itemConfigure={varConfigure}
+                                    itemValue={varValue}
                                     selectedVariable={selectedVariable}
+                                    type={varType}
                                 />
                             );
-                        })}
+                        }) ||
+                            ae.data.documents.value.map((d, i) => {
+                                const docConfigure = `${ae.data.documents.type} [${d.type}]`;
+                                const docValue = d.value.value;
+                                return (
+                                    <SubSideBarItem
+                                        key={i}
+                                        itemConfigure={docConfigure}
+                                        itemValue={docValue}
+                                        selectedVariable={selectedVariable}
+                                    />
+                                );
+                            })}
                     </div>
                 </div>
             ))}

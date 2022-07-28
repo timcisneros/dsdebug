@@ -62,6 +62,7 @@ const VariableProvider = ({ children }) => {
                 vars.push({
                     id: c.id,
                     stepName: c.name.value,
+                    // Push user defined variables to variable value list
                     values:
                         (c.variableUpdates?.value &&
                             c.variableUpdates.value.map((cv) =>
@@ -78,6 +79,7 @@ const VariableProvider = ({ children }) => {
                         '',
                     metadata: c.metadata?.value || '',
                     folder: c.newFolder?.value || '',
+                    // Push a document to variable value list
                     document:
                         c.documents?.value.length > 1
                             ? 'ERROR: MORE THAN ONE DOCUMENT FOUND'
@@ -88,6 +90,8 @@ const VariableProvider = ({ children }) => {
                                       value:
                                           c.variableValue?.value.value ||
                                           c.variableValue?.value ||
+                                          // Probably want to separate finding documents from steps into it's own category rather than lumping all var scrapes together. (I'm grabbing the same value twice in 'name' and 'value' keys)
+                                          c.documents.value[0].value.value ||
                                           'No Value',
                                   })) ||
                               '',
@@ -119,17 +123,23 @@ const VariableProvider = ({ children }) => {
         getStepVariables();
     }, [workflowName]);
 
+    // Handles displaying data in the subsidebar when a variable is selected
     const getElementsFromVariable = () => {
         const variableData = variables
-            .filter((vs) => vs.name === selectedVariable)
+            .filter(
+                (vs) =>
+                    vs.name === selectedVariable ||
+                    // For matching with a var name found in an expression, maybe remove if this matches to variables with similar names (ex: var and var_1)
+                    vs.value.includes(selectedVariable)
+            )
             .map((vd) => vd.id);
 
         const filteredElements = elements.filter((e) =>
             variableData.includes(e.id)
         );
-
         setActiveElements(filteredElements);
     };
+    //
 
     const selectVariable = (v) => {
         setSelectedVariable(v);
