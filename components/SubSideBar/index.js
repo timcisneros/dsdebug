@@ -55,8 +55,8 @@ const SubSideBar = () => {
                                 />
                             );
                         }) ||
-                            ae.data.documents.value.map((d, i) => {
-                                const docConfigure = `${ae.data.documents.type} [${d.type}]`;
+                            ae.data.document?.value.map((d, i) => {
+                                const docConfigure = `${ae.data.document.type} [${d.type}]`;
                                 const docValue = d.value.value;
                                 return (
                                     <SubSideBarItem
@@ -66,7 +66,38 @@ const SubSideBar = () => {
                                         selectedVariable={selectedVariable}
                                     />
                                 );
-                            })}
+                            }) ||
+                            (ae.data.folder?.value &&
+                                (function () {
+                                    const f = ae.data.folder.value;
+                                    const folderConfigure = `Folder: ${ae.data.folder.type} [${f.type}]`;
+                                    const folderValue = f.value;
+                                    return (
+                                        <SubSideBarItem
+                                            key={ae.id}
+                                            itemConfigure={folderConfigure}
+                                            itemValue={folderValue}
+                                            selectedVariable={selectedVariable}
+                                        />
+                                    );
+                                })()) ||
+                            (ae.data.valueVariable?.value &&
+                                (function () {
+                                    const ov = ae.data.valueVariable.value;
+                                    console.log(ov);
+                                    const outputVariableConfigure = `Output Variable: ${ae.data.valueVariable.type} [${ov.type}]`;
+                                    const outputVariableValue = ov.value;
+                                    return (
+                                        <SubSideBarItem
+                                            key={ae.id}
+                                            itemConfigure={
+                                                outputVariableConfigure
+                                            }
+                                            itemValue={outputVariableValue}
+                                            selectedVariable={selectedVariable}
+                                        />
+                                    );
+                                })())}
                     </div>
                 </div>
             ))}

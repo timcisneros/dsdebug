@@ -24,7 +24,10 @@ const SideBarItem = ({
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundColor: '#2d2d2d',
+                        backgroundColor:
+                            individualVariableData.length > 0
+                                ? '#2d2d2d'
+                                : '#8e8e8e',
                         color: '#fff',
                         fontSize: 10,
                         borderRadius: '100%',
@@ -44,6 +47,10 @@ const SideBarItem = ({
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
+                        color:
+                            individualVariableData.length > 0
+                                ? '#000'
+                                : '#8e8e8e',
                     }}
                 >
                     <Tooltip hasArrow label={variableListItem} placement="top">

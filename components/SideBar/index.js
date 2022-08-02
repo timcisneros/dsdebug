@@ -40,12 +40,14 @@ const SideBar = () => {
             </div>
             {variableList.map((v, i) => {
                 const individualVariableData = variables.filter(
-                    (vs) => vs.name === v || vs.value.includes(v)
+                    (vs) =>
+                        new RegExp(`\\b${v}\\b`).test(vs.name) ||
+                        new RegExp(`\\b${v}\\b`).test(vs.value)
                 );
                 return (
                     // v&& deals with error rendering parent variables (removes parent variables)
 
-                    v && unusedVars ? (
+                    unusedVars ? (
                         // Update later; pass the filtered variable list to this component rather that handling the filtering here
                         individualVariableData.length > 0 && (
                             <SideBarItem

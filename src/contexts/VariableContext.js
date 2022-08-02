@@ -78,7 +78,14 @@ const VariableProvider = ({ children }) => {
                             )) ||
                         '',
                     metadata: c.metadata?.value || '',
-                    folder: c.newFolder?.value || '',
+                    folder:
+                        c.outputFolders?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.outputFolders.value.value,
+                            type: c.outputFolders.type,
+                            value: c.outputFolders.value.value,
+                        }),
                     // Push a document to variable value list
                     document:
                         c.documents?.value.length > 1
@@ -87,6 +94,7 @@ const VariableProvider = ({ children }) => {
                                   varValues.push({
                                       id: c.id,
                                       name: c.documents?.value[0].value.value,
+                                      type: c.documents?.type,
                                       value:
                                           c.variableValue?.value.value ||
                                           c.variableValue?.value ||
@@ -95,6 +103,14 @@ const VariableProvider = ({ children }) => {
                                           'No Value',
                                   })) ||
                               '',
+                    outputVariable:
+                        c.valueVariable?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.valueVariable.value.value,
+                            type: c.valueVariable.type,
+                            value: c.valueVariable.value.value,
+                        }),
                     outputDocuments: c.outputDocuments?.value?.value || '',
                     parentFolder:
                         c.parentFolder?.value.length > 1
@@ -123,14 +139,14 @@ const VariableProvider = ({ children }) => {
         getStepVariables();
     }, [workflowName]);
 
-    // Handles displaying data in the subsidebar when a variable is selected
+    // Handles higlighting steps when a variable is selected
     const getElementsFromVariable = () => {
         const variableData = variables
             .filter(
                 (vs) =>
-                    vs.name === selectedVariable ||
-                    // For matching with a var name found in an expression, maybe remove if this matches to variables with similar names (ex: var and var_1)
-                    vs.value.includes(selectedVariable)
+                    // For matching whole word (selectedVariable) with variable config name or value, maybe remove if this matches to variables with similar names (ex: var and var_1) REFACTOR later, this same logic is being repeated here, SubSideBarItem, and SideBar > index
+                    new RegExp(`\\b${selectedVariable}\\b`).test(vs.name) ||
+                    new RegExp(`\\b${selectedVariable}\\b`).test(vs.value)
             )
             .map((vd) => vd.id);
 

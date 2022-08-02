@@ -6,7 +6,6 @@ const SubSideBarItem = ({
     selectedVariable,
     type,
 }) => {
-    console.log(itemValue);
     return (
         <>
             <div style={{ padding: 10 }}>
@@ -26,7 +25,9 @@ const SubSideBarItem = ({
                 <div
                     style={{
                         padding: 5,
-                        backgroundColor: itemValue.includes(selectedVariable)
+                        backgroundColor: new RegExp(
+                            `\\b${selectedVariable}\\b`
+                        ).test(itemValue)
                             ? '#fdff6c'
                             : '#ffffffc9',
                         border: '1px solid #e0e0e0',
