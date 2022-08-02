@@ -37,92 +37,85 @@ const VariableProvider = ({ children }) => {
 
         const varValues = [];
 
-        try {
-            data.cells.map(
-                (c) =>
-                    c.type === 'springcm.Step' &&
-                    vars.push({
-                        id: c.id,
-                        stepName: c.name.value,
-                        // Push user defined variables to variable value list
-                        values:
-                            (c.variableUpdates?.value &&
-                                c.variableUpdates.value.map((cv) =>
-                                    varValues.push({
-                                        id: c.id,
-                                        name: cv.variableToConfigure.value
-                                            .value,
-                                        type: cv.variableValue.type,
-                                        value:
-                                            cv.variableValue.value.value ||
-                                            cv.variableValue.value.code ||
-                                            cv.variableValue.value,
-                                    })
-                                )) ||
-                            '',
-                        metadata: c.metadata?.value || '',
-                        folder:
-                            c.outputFolders?.value &&
-                            varValues.push({
-                                id: c.id,
-                                name: c.outputFolders.value.value,
-                                type: c.outputFolders.type,
-                                value: c.outputFolders.value.value,
-                            }),
-                        // Push a document to variable value list
-                        document:
-                            c.documents?.value.length > 1
-                                ? 'ERROR: MORE THAN ONE DOCUMENT FOUND'
-                                : (c.documents?.value[0].value.value &&
-                                      varValues.push({
-                                          id: c.id,
-                                          name: c.documents?.value[0].value
-                                              .value,
-                                          type: c.documents?.type,
-                                          value:
-                                              c.variableValue?.value.value ||
-                                              c.variableValue?.value ||
-                                              // Probably want to separate finding documents from steps into it's own category rather than lumping all var scrapes together. (I'm grabbing the same value twice in 'name' and 'value' keys)
-                                              c.documents.value[0].value
-                                                  .value ||
-                                              'No Value',
-                                      })) ||
-                                  '',
-                        outputVariable:
-                            c.valueVariable?.value &&
-                            varValues.push({
-                                id: c.id,
-                                name: c.valueVariable.value.value,
-                                type: c.valueVariable.type,
-                                value: c.valueVariable.value.value,
-                            }),
-                        outputDocuments:
-                            c.outputDocuments?.value &&
-                            varValues.push({
-                                id: c.id,
-                                name: c.outputDocuments.value.value,
-                                type: c.outputDocuments.type,
-                                value: c.outputDocuments.value.value,
-                            }),
-                        parentFolder:
-                            c.parentFolder?.value &&
-                            varValues.push({
-                                id: c.id,
-                                name: c.parentFolder.value.value,
-                                type: c.parentFolder.type,
-                                value: c.parentFolder.value.value,
-                            }),
-                        // possibly add subject, sender, recipient, and notes from Email step in the future
-                    })
-            );
-            // Set list of variables found in JSON data
-            setVariables(varValues);
+        data.cells.map(
+            (c) =>
+                c.type === 'springcm.Step' &&
+                vars.push({
+                    id: c.id,
+                    stepName: c.name.value,
+                    // Push user defined variables to variable value list
+                    values:
+                        (c.variableUpdates?.value &&
+                            c.variableUpdates.value.map((cv) =>
+                                varValues.push({
+                                    id: c.id,
+                                    name: cv.variableToConfigure.value.value,
+                                    type: cv.variableValue.type,
+                                    value:
+                                        cv.variableValue.value.value ||
+                                        cv.variableValue.value.code ||
+                                        cv.variableValue.value,
+                                })
+                            )) ||
+                        '',
+                    metadata: c.metadata?.value || '',
+                    folder:
+                        c.outputFolders?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.outputFolders.value.value,
+                            type: c.outputFolders.type,
+                            value: c.outputFolders.value.value,
+                        }),
+                    // Push a document to variable value list
+                    document:
+                        c.documents?.value.length > 1
+                            ? 'ERROR: MORE THAN ONE DOCUMENT FOUND'
+                            : (c.documents?.value[0].value.value &&
+                                  varValues.push({
+                                      id: c.id,
+                                      name: c.documents?.value[0].value.value,
+                                      type: c.documents?.type,
+                                      value:
+                                          c.variableValue?.value.value ||
+                                          c.variableValue?.value ||
+                                          // Probably want to separate finding documents from steps into it's own category rather than lumping all var scrapes together. (I'm grabbing the same value twice in 'name' and 'value' keys)
+                                          c.documents.value[0].value.value ||
+                                          'No Value',
+                                  })) ||
+                              '',
+                    outputVariable:
+                        c.valueVariable?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.valueVariable.value.value,
+                            type: c.valueVariable.type,
+                            value: c.valueVariable.value.value,
+                        }),
+                    outputDocuments:
+                        c.outputDocuments?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.outputDocuments.value.value,
+                            type: c.outputDocuments.type,
+                            value: c.outputDocuments.value.value,
+                        }),
+                    parentFolder:
+                        c.parentFolder?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.parentFolder.value.value,
+                            type: c.parentFolder.type,
+                            value: c.parentFolder.value.value,
+                        }),
+                    // possibly add subject, sender, recipient, and notes from Email step in the future
+                })
+        );
+        // Set list of variables found in JSON data
+        setVariables(varValues);
 
-            // Set list of all defined variables in workflow
-            setVariableList(definedVariables);
-        } catch (error) {
-            console.error(error);
-        }
+        // Set list of all defined variables in workflow
+        setVariableList(definedVariables);
     };
 
     // Runs when workflow is changed from dropdown

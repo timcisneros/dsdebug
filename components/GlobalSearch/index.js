@@ -22,11 +22,13 @@ const GlobalSearch = ({ children }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const handleSearchResults = (value) => {
+    console.log(variables);
+
+    const handleSearchResults = (value = 'test') => {
         setSearchWord(value);
 
         const newFilter = variables.filter((v) =>
-            v.value.toLowerCase().includes(value.toLowerCase())
+            v.value?.toLowerCase().includes(value.toLowerCase())
         );
 
         if (value === '') {
