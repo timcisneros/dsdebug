@@ -111,11 +111,22 @@ const VariableProvider = ({ children }) => {
                             type: c.valueVariable.type,
                             value: c.valueVariable.value.value,
                         }),
-                    outputDocuments: c.outputDocuments?.value?.value || '',
+                    outputDocuments:
+                        c.outputDocuments?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.outputDocuments.value.value,
+                            type: c.outputDocuments.type,
+                            value: c.outputDocuments.value.value,
+                        }),
                     parentFolder:
-                        c.parentFolder?.value.length > 1
-                            ? 'ERROR: MORE THAN ONE PARENT FOLDER FOUND'
-                            : c.parentFolder?.value[0].value.value || '',
+                        c.parentFolder?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: c.parentFolder.value.value,
+                            type: c.parentFolder.type,
+                            value: c.parentFolder.value.value,
+                        }),
                     // possibly add subject, sender, recipient, and notes from Email step in the future
                 })
         );

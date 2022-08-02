@@ -54,50 +54,79 @@ const SubSideBar = () => {
                                     type={varType}
                                 />
                             );
-                        }) ||
-                            ae.data.document?.value.map((d, i) => {
-                                const docConfigure = `${ae.data.document.type} [${d.type}]`;
-                                const docValue = d.value.value;
+                        })}
+
+                        {ae.data.document?.value.map((d, i) => {
+                            console.log(ae.data.document.value);
+                            const docConfigure = `${ae.data.document.type} [${d.type}]`;
+                            //d.value.value if using a variable, d.value if set by path or doc id
+                            const docValue = d.value.value || d.value;
+                            return (
+                                <SubSideBarItem
+                                    key={i}
+                                    itemConfigure={docConfigure}
+                                    itemValue={docValue}
+                                    selectedVariable={selectedVariable}
+                                />
+                            );
+                        })}
+                        {ae.data.folder?.value &&
+                            (function () {
+                                const f = ae.data.folder.value;
+                                const folderConfigure = `Folder: ${ae.data.folder.type} [${f.type}]`;
+                                const folderValue = f.value;
                                 return (
                                     <SubSideBarItem
-                                        key={i}
-                                        itemConfigure={docConfigure}
-                                        itemValue={docValue}
+                                        key={ae.id}
+                                        itemConfigure={folderConfigure}
+                                        itemValue={folderValue}
                                         selectedVariable={selectedVariable}
                                     />
                                 );
-                            }) ||
-                            (ae.data.folder?.value &&
-                                (function () {
-                                    const f = ae.data.folder.value;
-                                    const folderConfigure = `Folder: ${ae.data.folder.type} [${f.type}]`;
-                                    const folderValue = f.value;
-                                    return (
-                                        <SubSideBarItem
-                                            key={ae.id}
-                                            itemConfigure={folderConfigure}
-                                            itemValue={folderValue}
-                                            selectedVariable={selectedVariable}
-                                        />
-                                    );
-                                })()) ||
-                            (ae.data.valueVariable?.value &&
-                                (function () {
-                                    const ov = ae.data.valueVariable.value;
-                                    console.log(ov);
-                                    const outputVariableConfigure = `Output Variable: ${ae.data.valueVariable.type} [${ov.type}]`;
-                                    const outputVariableValue = ov.value;
-                                    return (
-                                        <SubSideBarItem
-                                            key={ae.id}
-                                            itemConfigure={
-                                                outputVariableConfigure
-                                            }
-                                            itemValue={outputVariableValue}
-                                            selectedVariable={selectedVariable}
-                                        />
-                                    );
-                                })())}
+                            })()}
+                        {ae.data.outputVariable?.value &&
+                            (function () {
+                                const ov = ae.data.outputVariable.value;
+                                const outputVariableConfigure = `Output Variable: ${ae.data.outputVariable.type} [${ov.type}]`;
+                                const outputVariableValue = ov.value;
+                                return (
+                                    <SubSideBarItem
+                                        key={`ov${ae.id}`}
+                                        itemConfigure={outputVariableConfigure}
+                                        itemValue={outputVariableValue}
+                                        selectedVariable={selectedVariable}
+                                    />
+                                );
+                            })()}
+                        {ae.data.outputDocument?.value &&
+                            (function () {
+                                const od = ae.data.outputDocument.value;
+                                const outputDocumentConfigure = `Output Document: ${ae.data.outputDocument.type} [${od.type}]`;
+                                const outputDocumentValue = od.value;
+                                return (
+                                    <SubSideBarItem
+                                        key={`od${ae.id}`}
+                                        itemConfigure={outputDocumentConfigure}
+                                        itemValue={outputDocumentValue}
+                                        selectedVariable={selectedVariable}
+                                    />
+                                );
+                            })()}
+                        {ae.data.parentFolder?.value &&
+                            (function () {
+                                const pf = ae.data.parentFolder.value[0];
+                                const parentFolderConfigure = `Parent Folder: ${ae.data.parentFolder.type} [${pf.type}]`;
+                                const parentFolderValue =
+                                    pf.value.value || pf.value;
+                                return (
+                                    <SubSideBarItem
+                                        key={`pf${ae.id}`}
+                                        itemConfigure={parentFolderConfigure}
+                                        itemValue={parentFolderValue}
+                                        selectedVariable={selectedVariable}
+                                    />
+                                );
+                            })()}
                     </div>
                 </div>
             ))}
