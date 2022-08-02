@@ -58,7 +58,16 @@ const VariableProvider = ({ children }) => {
                                 })
                             )) ||
                         '',
-                    metadata: c.metadata?.value || '',
+                    metadata:
+                        c.metadata?.value &&
+                        c.metadata.value.map((cm) =>
+                            varValues.push({
+                                id: c.id,
+                                name: cm.metadataToConfigure.value.value,
+                                type: cm.variableValue.type,
+                                value: cm.variableValue.value.value,
+                            })
+                        ),
                     folder:
                         c.outputFolders?.value &&
                         varValues.push({

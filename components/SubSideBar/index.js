@@ -55,7 +55,26 @@ const SubSideBar = () => {
                                 />
                             );
                         })}
-
+                        {ae.data.metadata?.value.map((m, i) => {
+                            const metadataConfigure = `${
+                                m.metadataToConfigure.value[0].value?.name ||
+                                m.metadataToConfigure.value
+                            } [${m.metadataToConfigure.type}] ${
+                                m.metadataToConfigure.value[0].value
+                                    ?.groupName || ''
+                            }`;
+                            const metadataValue =
+                                m.variableValue.value.value ||
+                                m.variableValue.value;
+                            return (
+                                <SubSideBarItem
+                                    key={i}
+                                    itemConfigure={metadataConfigure}
+                                    itemValue={metadataValue}
+                                    selectedVariable={selectedVariable}
+                                />
+                            );
+                        })}
                         {ae.data.document?.value.map((d, i) => {
                             const docConfigure = `${ae.data.document.type} [${d.type}]`;
                             //d.value.value if using a variable, d.value if set by path or doc id

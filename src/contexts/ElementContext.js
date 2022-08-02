@@ -28,6 +28,7 @@ const ElementProvider = ({ children }) => {
                                 height: c.size.height,
                                 description: c.attrs['.descriptiontext'].text,
                                 vars: c.variableUpdates,
+                                metadata: c.metadata,
                                 document: c.documents,
                                 parentFolder: c.parentFolder,
                                 folder: c.outputFolders,
