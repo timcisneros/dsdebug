@@ -22,8 +22,6 @@ const GlobalSearch = ({ children }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    console.log(variables);
-
     const handleSearchResults = (value = 'test') => {
         setSearchWord(value);
 
