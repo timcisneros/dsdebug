@@ -1,10 +1,9 @@
 import { useRef } from 'react';
-import { useVariable } from '../../src/contexts/VariableContext';
+import { useData } from '../../src/contexts/DataContext';
 import { Box, Text } from '@chakra-ui/layout';
 
 const UploadButton = () => {
-    const { handleReadFile } = useVariable();
-
+    const { handleReadFile } = useData();
     const hiddenFileInput = useRef(null);
 
     const handleClick = (e) => {

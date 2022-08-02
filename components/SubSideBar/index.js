@@ -57,7 +57,6 @@ const SubSideBar = () => {
                         })}
 
                         {ae.data.document?.value.map((d, i) => {
-                            console.log(ae.data.document.value);
                             const docConfigure = `${ae.data.document.type} [${d.type}]`;
                             //d.value.value if using a variable, d.value if set by path or doc id
                             const docValue = d.value.value || d.value;

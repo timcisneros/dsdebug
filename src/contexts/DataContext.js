@@ -1,4 +1,5 @@
 import { useState, createContext, useContext } from 'react';
+import { useToast } from '@chakra-ui/react';
 import initialData from '../../data/sample_data.json';
 
 const DataContext = createContext();
@@ -12,28 +13,65 @@ const DataProvider = ({ children }) => {
     const [dataList, setDataList] = useState([]);
     const [workflowName, setWorkflowName] = useState();
     const [definedVariables, setDefinedVariables] = useState([]);
+    const toast = useToast();
+
+    // Used for uploading a file
+    const handleReadFile = (files) => {
+        for (let i = 0; i < files.length; i++) {
+            const reader = new FileReader();
+            reader.onload = onReaderLoad;
+            reader.readAsText(files[i]);
+        }
+    };
+
+    const onReaderLoad = (event) => {
+        try {
+            setData(JSON.parse(event.target.result));
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    //
 
     const getAddedWorkflowNames = () => {
-        const startActivity = data.cells.find(
-            (c) => c.activityName === 'StartActivity'
-        );
+        let startActivity = '';
 
-        const wfName = startActivity.workflowName.value;
+        try {
+            startActivity = data.cells.find(
+                (c) => c.activityName === 'StartActivity'
+            );
 
-        setWorkflowName(wfName);
+            const wfName = startActivity.workflowName.value;
 
-        const allDataList = [{ name: wfName, data }, ...dataList];
+            setWorkflowName(wfName);
 
-        const filteredDataList = allDataList.filter(
-            (adlf, i) =>
-                allDataList.map((adlm) => adlm.name).indexOf(adlf.name) === i
-        );
+            const allDataList = [{ name: wfName, data }, ...dataList];
 
-        setDataList(filteredDataList);
+            const filteredDataList = allDataList.filter(
+                (adlf, i) =>
+                    allDataList.map((adlm) => adlm.name).indexOf(adlf.name) ===
+                    i
+            );
 
-        setDefinedVariables(
-            startActivity.definedVariables.value.map((dv) => dv.value.name)
-        );
+            setDataList(filteredDataList);
+
+            setDefinedVariables(
+                startActivity.definedVariables.value.map((dv) => dv.value.name)
+            );
+        } catch (error) {
+            // Temporary solution to remove error alerts for unreadable files
+            window.alert = function () {};
+            console.error(error);
+            // Reset data from what was uploaded to last opened readable file
+            setData(dataList[0].data);
+            toast({
+                title: 'File(s) Unreadable',
+                description: `One or more files could not be read and did not upload`,
+                status: 'error',
+                duration: null,
+                isClosable: true,
+            });
+        }
     };
 
     const value = {
@@ -44,6 +82,7 @@ const DataProvider = ({ children }) => {
         setWorkflowName,
         getAddedWorkflowNames,
         definedVariables,
+        handleReadFile,
     };
 
     return (
