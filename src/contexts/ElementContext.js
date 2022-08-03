@@ -32,6 +32,7 @@ const ElementProvider = ({ children }) => {
                                 document: c.documents,
                                 parentFolder: c.parentFolder,
                                 folder: c.outputFolders,
+                                newFolder: c.newFolder,
                                 outputVariable: c.valueVariable,
                                 outputDocument: c.outputDocuments,
                                 all: c,

@@ -1,0 +1,1891 @@
+{
+    "cells": [
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "1badcd81-f52f-458f-9b3c-0cba75bce5ff",
+                "port": "e"
+            },
+            "target": {
+                "id": "356c91d4-e0a1-4c25-886a-6b746be43bbf",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "1f326016-1238-424d-b052-58bb406c31d0",
+            "z": 1000001,
+            "name": { "type": "String", "value": "Link 1" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "83b0884b-0a60-49eb-84c7-0095100c57ee",
+                "port": "e"
+            },
+            "target": {
+                "id": "813cc231-61a7-4217-a9d6-a5a656b09095",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "5400ab5b-4216-4a95-bf86-5e7ae86e6056",
+            "z": 1000004,
+            "name": { "type": "String", "value": "Link 3" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "success" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "356c91d4-e0a1-4c25-886a-6b746be43bbf",
+                "port": "e"
+            },
+            "target": {
+                "id": "a719e43f-5ef7-4c48-886b-298a489c2232",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "df02c41f-a5e2-4ddb-86ed-f1f15f413c24",
+            "z": 1000005,
+            "name": { "type": "String", "value": "Link 2" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "updated" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "a719e43f-5ef7-4c48-886b-298a489c2232",
+                "port": "s"
+            },
+            "target": {
+                "id": "5b25dcd2-767c-4ad2-8b46-c0c10e9333c2",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "607e8460-2b06-4570-91ae-645ef9be2a9b",
+            "z": 1000009,
+            "name": { "type": "String", "value": "Link 4" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "failure" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "a719e43f-5ef7-4c48-886b-298a489c2232",
+                "port": "e"
+            },
+            "target": {
+                "id": "83b0884b-0a60-49eb-84c7-0095100c57ee",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "876adb91-a330-4aec-8385-1d681659ab98",
+            "z": 1000011,
+            "name": { "type": "String", "value": "Link 5" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "success" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "5b25dcd2-767c-4ad2-8b46-c0c10e9333c2",
+                "port": "e"
+            },
+            "target": {
+                "id": "3e171fc4-20f2-4986-9f86-83d1ec354e65",
+                "port": "s",
+                "selector": "> g:nth-child(1) > g:nth-child(5) > circle:nth-child(7)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "ace5ea4c-cc05-4d7c-b863-dbdc7d91f083",
+            "z": 1000012,
+            "name": { "type": "String", "value": "Link 6" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "success" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "813cc231-61a7-4217-a9d6-a5a656b09095",
+                "port": "e",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(8)"
+            },
+            "target": {
+                "id": "f4b7adf4-140c-4bee-80a7-d998fd660c3c",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "e2816481-cc03-4d34-b84f-a2070a23cb2d",
+            "z": 1000018,
+            "name": { "type": "String", "value": "Link 7" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "updated" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "43b0740a-f195-4861-b08e-351cebf9efeb",
+                "port": "e"
+            },
+            "target": {
+                "id": "3e171fc4-20f2-4986-9f86-83d1ec354e65",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(5) > circle:nth-child(4)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "04ab37f4-fc06-4a9b-9c51-e567d75a7b96",
+            "z": 1000019,
+            "name": { "type": "String", "value": "Link 8" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "success" },
+            "attrs": {}
+        },
+        {
+            "type": "springcm.Link",
+            "source": {
+                "id": "f4b7adf4-140c-4bee-80a7-d998fd660c3c",
+                "port": "e"
+            },
+            "target": {
+                "id": "43b0740a-f195-4861-b08e-351cebf9efeb",
+                "port": "w",
+                "selector": "> g:nth-child(1) > g:nth-child(3) > circle:nth-child(5)"
+            },
+            "router": {
+                "name": "manhattan",
+                "args": { "excludeTypes": ["springcm.Group", "springcm.Lane"] }
+            },
+            "id": "0330c663-14c5-4451-a113-476a8d30db89",
+            "z": 1000022,
+            "name": { "type": "String", "value": "Link 9" },
+            "vertices": [],
+            "description": { "type": "String", "value": "" },
+            "output": { "type": "String", "value": "success" },
+            "attrs": {}
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Circle",
+            "position": { "x": 86, "y": 70 },
+            "angle": 0,
+            "activityName": "StartActivity",
+            "group": "hidden",
+            "icon": { "path": "start.svg#Dark", "color": "white" },
+            "z": 2000001,
+            "id": "1badcd81-f52f-458f-9b3c-0cba75bce5ff",
+            "name": { "type": "String", "value": "Start" },
+            "definedVariables": {
+                "type": "Variable",
+                "value": [
+                    {
+                        "type": "Xml",
+                        "value": {
+                            "name": "Params",
+                            "displayName": "Params",
+                            "description": "",
+                            "displayType": "Document",
+                            "schema": {
+                                "nodes": [
+                                    {
+                                        "name": "Documents",
+                                        "nodes": [
+                                            {
+                                                "name": "Document",
+                                                "nodes": [
+                                                    {
+                                                        "name": "Id",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "677059db-e612-45af-ab03-050890e83c4d"
+                                                    },
+                                                    {
+                                                        "name": "Description",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "43cd9857-30c8-45e4-8f1b-bf8cdf0fe7d9"
+                                                    },
+                                                    {
+                                                        "name": "Name",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "7b1296e4-5cbb-4faa-ad00-7fd93bf767fb"
+                                                    },
+                                                    {
+                                                        "name": "ParentFolderId",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "01a609bf-d8ab-4032-a0c8-46ae96a7e2d6"
+                                                    },
+                                                    {
+                                                        "name": "CreatedBy",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "1f41f76c-6244-4922-827e-9203f1b128ab"
+                                                    },
+                                                    {
+                                                        "name": "CreatedDate",
+                                                        "dataType": "dateTime",
+                                                        "type": "element",
+                                                        "guid": "b210ff0f-e105-4d36-ae43-ab5c524ba73a"
+                                                    },
+                                                    {
+                                                        "name": "ParentFolderName",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "4b429d97-6e53-4f58-8097-bcf9572b35ee"
+                                                    },
+                                                    {
+                                                        "name": "UpdatedBy",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "730029b3-7d5c-4d5d-a037-211475d70bd4"
+                                                    },
+                                                    {
+                                                        "name": "UpdatedDate",
+                                                        "dataType": "dateTime",
+                                                        "type": "element",
+                                                        "guid": "26d4f68c-cc5f-4170-ab9f-d0d78138dc4f"
+                                                    },
+                                                    {
+                                                        "name": "IsFormDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "c8f70250-f9f1-4060-be1c-4d50a148cbbf"
+                                                    },
+                                                    {
+                                                        "name": "IsTermDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "ccd493ea-7039-45a6-afa9-1073bad1e538"
+                                                    },
+                                                    {
+                                                        "name": "EditDocumentURL",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "db6ebd56-cc29-402e-aaca-8d21680c81ae"
+                                                    },
+                                                    {
+                                                        "name": "IsCheckedOut",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "b3d2e702-7146-4ee1-a00e-a48d2d913dc8"
+                                                    },
+                                                    {
+                                                        "name": "PageCount",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "b615b9ac-6d10-4fe6-98ef-0a5b942b9a42"
+                                                    }
+                                                ],
+                                                "guid": "8cb5eb46-6b37-4a67-ae05-3f79faad4def"
+                                            }
+                                        ],
+                                        "guid": "57d0cd6b-88e4-48f5-830e-7428c27f0ecc"
+                                    }
+                                ]
+                            },
+                            "sortable": false,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false,
+                            "isContent": true,
+                            "isLocal": false
+                        }
+                    },
+                    {
+                        "type": "User",
+                        "value": {
+                            "name": "SubmittedBy",
+                            "displayName": "Submitted By",
+                            "description": "",
+                            "displayType": "Actor",
+                            "schema": {
+                                "name": "UserAccount",
+                                "nodes": [
+                                    {
+                                        "name": "Name",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "0ebfcfa7-0ce1-48b5-8195-a687bc37b5cc"
+                                    },
+                                    {
+                                        "name": "CreatedDate",
+                                        "dataType": "dateTime",
+                                        "type": "element",
+                                        "guid": "9d858f5d-c34b-4a0b-8817-a1953d572283"
+                                    },
+                                    {
+                                        "name": "Email",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "5630ce8c-af68-4fed-81c9-ec76dbb1c0e9"
+                                    },
+                                    {
+                                        "name": "FirstName",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "ed688493-794b-469d-81b9-b878f8bae62a"
+                                    },
+                                    {
+                                        "name": "LastName",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "31978922-bad0-4b82-ae1d-abb3fd1c2d3e"
+                                    },
+                                    {
+                                        "name": "ManagerUid",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "ef29e4ef-8108-4741-b7ae-1d1afde5c2e9"
+                                    },
+                                    {
+                                        "name": "Role",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "e27961ff-495f-47d8-ae8f-481555d4862f"
+                                    },
+                                    {
+                                        "name": "Uid",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "9d45d498-fe6d-476a-a567-2f3d852497fb"
+                                    },
+                                    {
+                                        "name": "Language",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "e252d974-95d9-4b02-b038-63dd8fc2627a"
+                                    },
+                                    {
+                                        "name": "Region",
+                                        "dataType": "string",
+                                        "type": "element",
+                                        "guid": "0939a941-79d8-4d41-bb7f-ad592e4ad37a"
+                                    }
+                                ]
+                            },
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": false,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": true
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Comments",
+                            "displayName": "Comments",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": true,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "System",
+                        "value": {
+                            "name": "Date",
+                            "displayName": "Current Date",
+                            "description": "",
+                            "displayType": "System",
+                            "schema": {},
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": false,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": true
+                        }
+                    },
+                    {
+                        "type": "System",
+                        "value": {
+                            "name": "Time",
+                            "displayName": "Current Time",
+                            "description": "",
+                            "displayType": "System",
+                            "schema": {},
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": false,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": true
+                        }
+                    },
+                    {
+                        "type": "System",
+                        "value": {
+                            "name": "Link",
+                            "displayName": "Current Step Link",
+                            "description": "",
+                            "displayType": "System",
+                            "schema": {},
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": false,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": true
+                        }
+                    },
+                    {
+                        "type": "System",
+                        "value": {
+                            "name": "LastAbortEmail",
+                            "displayName": "Last Abort Email",
+                            "description": "",
+                            "displayType": "System",
+                            "schema": {},
+                            "sortable": false,
+                            "editable": false,
+                            "editableValue": false,
+                            "deletable": false,
+                            "draggable": true,
+                            "preDefined": true
+                        }
+                    },
+                    {
+                        "type": "Xml",
+                        "value": {
+                            "name": "CSV_Current",
+                            "displayName": "CSV_Current",
+                            "description": "",
+                            "displayType": "Document",
+                            "schema": {
+                                "nodes": [
+                                    {
+                                        "name": "Rows",
+                                        "nodes": [
+                                            {
+                                                "name": "Row",
+                                                "nodes": [
+                                                    {
+                                                        "name": "DOCUMENT_NAME",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "63e4c9d7-6df4-4340-b08f-8d96386a6e21"
+                                                    },
+                                                    {
+                                                        "name": "CREATED_DATE",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "bd862bf4-1cc3-48e4-8766-d801f4cb2275"
+                                                    },
+                                                    {
+                                                        "name": "LOCATION",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "4052b26a-d06e-4c54-ad56-a9fb2da7b7bf"
+                                                    },
+                                                    {
+                                                        "name": "LOCATION_PATH",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "eaf01451-d270-4170-8813-b507c734e00b"
+                                                    },
+                                                    {
+                                                        "name": "LAST_NAME",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "f69db66e-90ae-4413-aa3c-48748af77ff9"
+                                                    },
+                                                    {
+                                                        "name": "FIRST_NAME",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "9618b802-80cc-4ba5-99d3-3515adb83b12"
+                                                    },
+                                                    {
+                                                        "name": "DOCUMENT_NAME2",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "015a2c67-07d9-4e60-8edb-6e8754786d45"
+                                                    },
+                                                    {
+                                                        "name": "EMP_ID",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "42f626e1-7fe4-4049-bb8f-ddcd504133dc"
+                                                    },
+                                                    {
+                                                        "name": "Correct_Folder",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "b98a265a-7729-46da-accc-8bf922a1dc50"
+                                                    },
+                                                    {
+                                                        "name": "IsFormDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "abcdf963-7420-4247-87ba-31fde53f9990"
+                                                    },
+                                                    {
+                                                        "name": "IsTermDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "ac4c6f93-2406-42c2-8e23-05948508b902"
+                                                    },
+                                                    {
+                                                        "name": "EditDocumentURL",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "47632ab0-eaea-4420-8d0d-b7cf2acb12f5"
+                                                    },
+                                                    {
+                                                        "name": "IsCheckedOut",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "f8329dd7-05ac-4ac6-8370-c99a6968d136"
+                                                    },
+                                                    {
+                                                        "name": "PageCount",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "0f0db976-45e1-4534-8c3e-cce5a1624685"
+                                                    }
+                                                ],
+                                                "guid": "dd091837-0fca-4fa6-b8c4-dc9366f7a7fc"
+                                            }
+                                        ],
+                                        "guid": "c0d82d3a-8b01-4864-b014-50b1edf6cd77"
+                                    }
+                                ]
+                            },
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false,
+                            "isContent": false,
+                            "isLocal": false
+                        }
+                    },
+                    {
+                        "type": "Iterator",
+                        "value": {
+                            "name": "Row_Iterator",
+                            "displayName": "Row_Iterator",
+                            "description": "",
+                            "displayType": "Iterator",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false,
+                            "isLocal": false,
+                            "path": "CSV_Current.Rows.Row"
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "First_Name",
+                            "displayName": "First_Name",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Last_Name",
+                            "displayName": "Last_Name",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Document_Name_1",
+                            "displayName": "Document_Name_1",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Document_Name_2",
+                            "displayName": "Document_Name_2",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Doc_Path",
+                            "displayName": "Doc_Path",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "Employee_ID",
+                            "displayName": "Employee_ID",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "Xml",
+                        "value": {
+                            "name": "Doc",
+                            "displayName": "Doc",
+                            "description": "",
+                            "displayType": "Document",
+                            "schema": {
+                                "nodes": [
+                                    {
+                                        "name": "Documents",
+                                        "nodes": [
+                                            {
+                                                "name": "Document",
+                                                "nodes": [
+                                                    {
+                                                        "name": "Id",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "8f13bc73-c5b4-4e17-ad83-ed7c998eeefa"
+                                                    },
+                                                    {
+                                                        "name": "Description",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "cbf8a738-42a7-49a8-b049-0892d0d8c430"
+                                                    },
+                                                    {
+                                                        "name": "Name",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "f5edf712-3894-4293-85d9-f2492315dc5e"
+                                                    },
+                                                    {
+                                                        "name": "ParentFolderId",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "45998489-ccd0-4021-b3d7-d9420d6f61fe"
+                                                    },
+                                                    {
+                                                        "name": "CreatedBy",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "70d1892b-a52b-45bd-a5d6-eb5a98974526"
+                                                    },
+                                                    {
+                                                        "name": "CreatedDate",
+                                                        "dataType": "dateTime",
+                                                        "type": "element",
+                                                        "guid": "eef0b812-7493-4cbb-ade4-302888c8de8e"
+                                                    },
+                                                    {
+                                                        "name": "Metadata",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "nodes": [
+                                                            {
+                                                                "name": "Group",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "3989e667-d218-43aa-aad3-7cbb2ef390b9"
+                                                            },
+                                                            {
+                                                                "name": "Field",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "4afe9137-6a4c-4a3a-8857-b9ba7103696f"
+                                                            },
+                                                            {
+                                                                "name": "Value",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "04c95f72-cb55-41f6-9aa7-69366b26d62d"
+                                                            },
+                                                            {
+                                                                "name": "SetName",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "d1654613-0ca0-4e6c-be10-a19814b25f35"
+                                                            },
+                                                            {
+                                                                "name": "SetNumber",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "4bdf41ee-fcff-4d88-8916-3f24b8e3e396"
+                                                            }
+                                                        ],
+                                                        "guid": "98d39605-a0fa-4044-838f-1d6855627f4e"
+                                                    },
+                                                    {
+                                                        "name": "MetadataGroup",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "nodes": [
+                                                            {
+                                                                "name": "Set",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "Field",
+                                                                        "nodes": [
+                                                                            {
+                                                                                "name": "Group",
+                                                                                "dataType": "string",
+                                                                                "type": "element",
+                                                                                "guid": "7a2c4fd0-c55b-44e0-8712-e0baa97915f1"
+                                                                            },
+                                                                            {
+                                                                                "name": "Field",
+                                                                                "dataType": "string",
+                                                                                "type": "element",
+                                                                                "guid": "b861c10c-5bae-4f8c-a762-01fe377da6cc"
+                                                                            },
+                                                                            {
+                                                                                "name": "Value",
+                                                                                "dataType": "string",
+                                                                                "type": "element",
+                                                                                "guid": "76b02a18-8929-40c0-9099-8d03d930cb68"
+                                                                            },
+                                                                            {
+                                                                                "name": "SetName",
+                                                                                "dataType": "string",
+                                                                                "type": "element",
+                                                                                "guid": "3bbd9c9e-5f1c-42ce-9250-0868138b866f"
+                                                                            },
+                                                                            {
+                                                                                "name": "SetNumber",
+                                                                                "dataType": "string",
+                                                                                "type": "element",
+                                                                                "guid": "0d94215a-025c-47e9-8dd8-2dff2f4a7b61"
+                                                                            }
+                                                                        ],
+                                                                        "guid": "29527236-d994-457f-a410-7fe002ab7ca4"
+                                                                    },
+                                                                    {
+                                                                        "name": "Name",
+                                                                        "dataType": "string",
+                                                                        "type": "element",
+                                                                        "guid": "264e9da1-c1e1-47ce-8fcb-0ca35a51044a"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "element",
+                                                                        "guid": "969d6c6a-7929-4c47-9a66-c98f9cbc47fb"
+                                                                    }
+                                                                ],
+                                                                "guid": "7aadef98-1b4d-46a9-bbdd-2b51512a3bf9"
+                                                            },
+                                                            {
+                                                                "name": "Name",
+                                                                "dataType": "string",
+                                                                "type": "element",
+                                                                "guid": "69305134-449b-4cbe-a529-8b6ce16e5e70"
+                                                            }
+                                                        ],
+                                                        "guid": "fb05e7a9-6670-460a-a2e8-38b57290d1b1"
+                                                    },
+                                                    {
+                                                        "name": "ParentFolderName",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "3bd087de-f996-48fd-b726-dac8712d9c5e"
+                                                    },
+                                                    {
+                                                        "name": "UpdatedBy",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "bb5e4afc-e059-407f-898d-e9fc50a6ff2c"
+                                                    },
+                                                    {
+                                                        "name": "UpdatedDate",
+                                                        "dataType": "dateTime",
+                                                        "type": "element",
+                                                        "guid": "0c36217f-3df1-439d-876b-864ad625ac6c"
+                                                    },
+                                                    {
+                                                        "name": "IsFormDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "4b31bbad-0263-49e8-8896-ae17e98c1b3f"
+                                                    },
+                                                    {
+                                                        "name": "IsTermDocument",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "be785bf6-e934-475e-8be0-2c2eea4db0ef"
+                                                    },
+                                                    {
+                                                        "name": "EditDocumentURL",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "70842c69-5d40-4189-a089-63bf69c6ccfe"
+                                                    },
+                                                    {
+                                                        "name": "IsCheckedOut",
+                                                        "dataType": "boolean",
+                                                        "type": "element",
+                                                        "guid": "91082141-9906-4384-90f2-0f0d4c02d535"
+                                                    },
+                                                    {
+                                                        "name": "MIMEType",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "4d300357-a6aa-49ab-b4d7-674ed06da011"
+                                                    },
+                                                    {
+                                                        "name": "PageCount",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "160c9443-5284-4104-9169-7e452f133fb0"
+                                                    },
+                                                    {
+                                                        "name": "PMHEmployeeFileAltaHR",
+                                                        "nodes": [
+                                                            {
+                                                                "name": "LastName",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "1fd00f34-5b91-4812-833c-11e4b64efe53"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "1a1737ee-6b90-4f5c-8445-7213dfca614f"
+                                                                    }
+                                                                ],
+                                                                "guid": "efb08cf6-a798-461d-9f79-b10d0dc7faeb"
+                                                            },
+                                                            {
+                                                                "name": "FirstName",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "14ff7f6f-9d2f-468e-9a67-405fc330bc75"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "e313596f-987f-42e0-abd0-9991b22ea6ab"
+                                                                    }
+                                                                ],
+                                                                "guid": "fb97b739-6e78-4b47-9914-72760a292c39"
+                                                            },
+                                                            {
+                                                                "name": "EMPID",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "5f9ab77a-0b97-4fd4-a23c-ff1fc40160b8"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "e6726b3c-8e28-4050-b1e6-2f6c6b74026f"
+                                                                    }
+                                                                ],
+                                                                "guid": "67ecb8b5-971f-4d58-a5d3-3a9b18027d9e"
+                                                            },
+                                                            {
+                                                                "name": "SocialSecurityNumber",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "54aec153-b599-429c-b8b8-caec3b47c3a2"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "02dea7f7-b4ab-4676-8ac8-35c4dba7db05"
+                                                                    }
+                                                                ],
+                                                                "guid": "3932245a-d054-46c5-9270-512d2de587ef"
+                                                            },
+                                                            {
+                                                                "name": "DepartmentID",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "bb01f4ea-44ca-4517-b25c-bb92671c4b43"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "72be96f1-f488-47de-891a-d65df3333aa8"
+                                                                    }
+                                                                ],
+                                                                "guid": "36a77efe-570c-433a-85ba-e9066c20c617"
+                                                            },
+                                                            {
+                                                                "name": "Status",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "bcc0dfbf-a121-424d-9512-f19a0a9b3412"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "df38ae0d-1dbe-42ad-8838-33e60583c08e"
+                                                                    }
+                                                                ],
+                                                                "guid": "cc694030-e02c-47aa-9c7b-22ab0edfc4b6"
+                                                            },
+                                                            {
+                                                                "name": "PSID",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "db782b20-56ff-46b2-9833-c859b8209345"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "5cfaed37-eb5d-4b4a-8972-e3f3eaa7195b"
+                                                                    }
+                                                                ],
+                                                                "guid": "56cc0087-582d-42d7-9043-e199a87c2ffc"
+                                                            },
+                                                            {
+                                                                "name": "HireDate",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "b15de830-31b5-4522-afbc-a09b18767dda"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "5730a315-5c7b-49af-8711-91dc372b829a"
+                                                                    }
+                                                                ],
+                                                                "guid": "c7f881db-b371-448d-a7f9-152538d9d0c1"
+                                                            },
+                                                            {
+                                                                "name": "TermDate",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "19d51959-2691-4f6e-bdf4-5d50750ae4da"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "1449f1e2-0171-41a3-96d6-9d3d6fd50449"
+                                                                    }
+                                                                ],
+                                                                "guid": "3e0fbfb4-344b-4ced-b35b-797261f35fb4"
+                                                            },
+                                                            {
+                                                                "name": "DocumentName",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "d89a1c46-2a0c-479a-a5f3-ec76df8b39bd"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "efc618a8-5903-4555-a425-0e849bd18a11"
+                                                                    }
+                                                                ],
+                                                                "guid": "b47cdf4f-31bd-4eab-99fb-02961f7f1a22"
+                                                            },
+                                                            {
+                                                                "name": "Category",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "f84c0de9-ce9d-47c8-973a-2e32a74b99f0"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "6d0b1af1-4758-4952-a029-18392d0efcb8"
+                                                                    }
+                                                                ],
+                                                                "guid": "f7463faa-72ba-4795-822d-3bfe356f0af7"
+                                                            },
+                                                            {
+                                                                "name": "Subcategory",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "6845baad-24f4-496f-a0b9-ffed48e9f19e"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "957edf9e-4fbc-4945-b978-7404e99602d1"
+                                                                    }
+                                                                ],
+                                                                "guid": "55f1157f-12c5-49e6-a78b-2052bfd0db17"
+                                                            },
+                                                            {
+                                                                "name": "DocumentDate",
+                                                                "nodes": [
+                                                                    {
+                                                                        "name": "SetNumber",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "e3b279b7-2a45-4792-89ae-6da3c348f5a5"
+                                                                    },
+                                                                    {
+                                                                        "name": "SetName",
+                                                                        "dataType": "string",
+                                                                        "type": "attribute",
+                                                                        "guid": "5635bb87-194f-442f-9ca3-f42dec55dc9a"
+                                                                    }
+                                                                ],
+                                                                "guid": "dddbcd4f-f0f6-42ee-a0d6-3a01b7ac3d7d"
+                                                            }
+                                                        ],
+                                                        "guid": "be1db2be-4ec5-4b60-9ffc-80bfd124de5c"
+                                                    }
+                                                ],
+                                                "guid": "82ce2427-370a-4a51-b2b5-0d0b0f79f88d"
+                                            }
+                                        ],
+                                        "guid": "a00055d2-b7d4-464f-bb3c-bca08cf30097"
+                                    }
+                                ]
+                            },
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false,
+                            "isContent": false,
+                            "isLocal": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "New_Doc_Path",
+                            "displayName": "New_Doc_Path",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "String",
+                        "value": {
+                            "name": "New_Doc_Category",
+                            "displayName": "New_Doc_Category",
+                            "description": "",
+                            "displayType": "Text",
+                            "schema": {},
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false
+                        }
+                    },
+                    {
+                        "type": "Xml",
+                        "value": {
+                            "name": "New_Doc_Destination",
+                            "displayName": "New_Doc_Destination",
+                            "description": "",
+                            "displayType": "Folder",
+                            "schema": {
+                                "nodes": [
+                                    {
+                                        "name": "Folders",
+                                        "nodes": [
+                                            {
+                                                "name": "Folder",
+                                                "nodes": [
+                                                    {
+                                                        "name": "Id",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "cf3448d9-738f-40a6-a60b-b2580e7c3c42"
+                                                    },
+                                                    {
+                                                        "name": "Description",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "3d88851c-0ede-45aa-8f00-da4736c25072"
+                                                    },
+                                                    {
+                                                        "name": "Name",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "e0a7b5a5-9364-4a01-a362-a9341082e616"
+                                                    },
+                                                    {
+                                                        "name": "ParentFolderId",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "868f5f30-713e-4592-988d-3661110e22cd"
+                                                    },
+                                                    {
+                                                        "name": "CreatedBy",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "3cf97b4a-586a-45ea-b1cb-5ebda2b191d5"
+                                                    },
+                                                    {
+                                                        "name": "CreatedDate",
+                                                        "dataType": "dateTime",
+                                                        "type": "element",
+                                                        "guid": "cc94a893-b7fc-4d04-a617-d51d72237d5c"
+                                                    },
+                                                    {
+                                                        "name": "BrowseFolderURL",
+                                                        "dataType": "string",
+                                                        "type": "element",
+                                                        "guid": "03ae1de4-103d-439c-95de-73dc5cec25d0"
+                                                    }
+                                                ],
+                                                "guid": "56bffa46-dc30-42e6-882c-0026dea059fe"
+                                            }
+                                        ],
+                                        "guid": "b14ed9db-4c58-4cf1-a7d6-509b7a587e45"
+                                    }
+                                ]
+                            },
+                            "sortable": true,
+                            "editable": true,
+                            "editableValue": true,
+                            "deletable": true,
+                            "draggable": true,
+                            "preDefined": false,
+                            "isContent": false,
+                            "isLocal": false
+                        }
+                    }
+                ]
+            },
+            "workflowName": {
+                "type": "String",
+                "value": "Alta Reroute Fix - Move Employee File"
+            },
+            "sendNotification": { "type": "Bool", "value": false },
+            "trackActivity": { "type": "Bool", "value": true },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Start",
+                    "lineHeight": "1.4em"
+                },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/start.svg#Dark"
+                },
+                "svg": { "color": "white" },
+                "circle": { "fill": "#A0CC23" }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 324, "y": 67 },
+            "angle": 0,
+            "activityName": "UpdateVariableActivity",
+            "group": "engineActivities",
+            "icon": {
+                "path": "update_variable_value.svg#Dark",
+                "color": "#d13393"
+            },
+            "id": "356c91d4-e0a1-4c25-886a-6b746be43bbf",
+            "z": 2000002,
+            "name": { "type": "String", "value": "Update Variable Value 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "notifyOnException": { "type": "Bool", "value": true },
+            "variableUpdates": {
+                "type": "VariableUpdate",
+                "value": [
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": { "type": "String", "value": "First_Name" }
+                        },
+                        "variableValue": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "Iterator",
+                                "value": "Row_Iterator.Row.FIRST_NAME"
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": { "type": "String", "value": "Last_Name" }
+                        },
+                        "variableValue": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "Iterator",
+                                "value": "Row_Iterator.Row.LAST_NAME"
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "String",
+                                "value": "Document_Name_1"
+                            }
+                        },
+                        "variableValue": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "Iterator",
+                                "value": "Row_Iterator.Row.DOCUMENT_NAME"
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "String",
+                                "value": "Document_Name_2"
+                            }
+                        },
+                        "variableValue": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "Iterator",
+                                "value": "Row_Iterator.Row.DOCUMENT_NAME2"
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "String",
+                                "value": "Employee_ID"
+                            }
+                        },
+                        "variableValue": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "Iterator",
+                                "value": "Row_Iterator.Row.EMP_ID"
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": { "type": "String", "value": "Doc_Path" }
+                        },
+                        "variableValue": {
+                            "type": "Expression",
+                            "value": {
+                                "code": "string parent_folder = GetVariableValue(\"Row_Iterator.Row.LOCATION_PATH\");\r\nstring employee_document = GetVariableValue(\"Row_Iterator.Row.DOCUMENT_NAME\");\r\n\r\nreturn String.Format(\"{0}/{1}\", parent_folder, employee_document);",
+                                "returnType": "System.Object",
+                                "additionalCode": ""
+                            }
+                        }
+                    }
+                ]
+            },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Update Variable\nValue 1",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/update_variable_value.svg#Dark"
+                },
+                "svg": { "color": "#d13393", "fill": "#fff" },
+                "rect": { "fill": "#d13393" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Circle",
+            "position": { "x": 1877, "y": 66 },
+            "angle": 0,
+            "activityName": "EndActivity",
+            "group": "engineActivities",
+            "icon": { "path": "finish.svg#Dark", "color": "white" },
+            "id": "3e171fc4-20f2-4986-9f86-83d1ec354e65",
+            "z": 2000003,
+            "name": { "type": "String", "value": "Finish 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "attrs": {
+                ".circle-container": {
+                    "fill": "#29bdbe",
+                    "class": "circle-container theme_primary_fill"
+                },
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Finish 1",
+                    "lineHeight": "1.4em"
+                },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/finish.svg#Dark"
+                },
+                "svg": { "color": "white" }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 909, "y": 72 },
+            "angle": 0,
+            "activityName": "UpdateStatusActivity",
+            "group": "engineActivities",
+            "icon": { "path": "status_change.svg#Dark", "color": "#e98824" },
+            "id": "83b0884b-0a60-49eb-84c7-0095100c57ee",
+            "z": 2000004,
+            "name": { "type": "String", "value": "Update Information 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "status": {
+                "type": "Expression",
+                "value": {
+                    "code": "string first_name = GetVariableValue(\"First_Name\");\r\nstring last_name = GetVariableValue(\"Last_Name\");\r\nstring employee_id = GetVariableValue(\"Employee_ID\");\r\n\r\nreturn String.Format(\"SUCCESS - File found: {0}, {1} - {2}\", last_name, first_name, employee_id);",
+                    "returnType": "System.Object",
+                    "additionalCode": ""
+                }
+            },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Update\nInformation 1",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/status_change.svg#Dark"
+                },
+                "svg": { "color": "#e98824", "fill": "#fff" },
+                "rect": { "fill": "#e98824" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 634, "y": 67 },
+            "angle": 0,
+            "activityName": "FindDocumentActivity",
+            "group": "engineActivities",
+            "icon": { "path": "find_document.svg#Dark", "color": "#2BBCB6" },
+            "id": "a719e43f-5ef7-4c48-886b-298a489c2232",
+            "z": 2000006,
+            "name": { "type": "String", "value": "Find Document 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "documents": {
+                "type": "Document",
+                "value": [
+                    {
+                        "type": "Variable",
+                        "value": { "type": "String", "value": "Doc_Path" }
+                    }
+                ]
+            },
+            "outputDocuments": {
+                "type": "Variable",
+                "value": { "type": "Xml", "value": "Doc" }
+            },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Find Document 1",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/find_document.svg#Dark"
+                },
+                "svg": { "color": "#2BBCB6", "fill": "#fff" },
+                "rect": { "fill": "#2BBCB6" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 910, "y": 274 },
+            "angle": 0,
+            "activityName": "UpdateStatusActivity",
+            "group": "engineActivities",
+            "icon": { "path": "status_change.svg#Dark", "color": "#e98824" },
+            "id": "5b25dcd2-767c-4ad2-8b46-c0c10e9333c2",
+            "name": { "type": "String", "value": "Update Information 2" },
+            "stepDescription": { "type": "String", "value": "" },
+            "status": {
+                "type": "Expression",
+                "value": {
+                    "code": "string first_name = GetVariableValue(\"First_Name\");\r\nstring last_name = GetVariableValue(\"Last_Name\");\r\nstring employee_id = GetVariableValue(\"Employee_ID\");\r\n\r\nreturn String.Format(\"ERROR - No file found: {0}, {1} - {2}\", last_name, first_name, employee_id);",
+                    "returnType": "System.Object",
+                    "additionalCode": ""
+                }
+            },
+            "z": 2000007,
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Update\nInformation 2",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/status_change.svg#Dark"
+                },
+                "svg": { "color": "#e98824", "fill": "#fff" },
+                "rect": { "fill": "#e98824" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 1148, "y": 70 },
+            "angle": 0,
+            "activityName": "UpdateVariableActivity",
+            "group": "engineActivities",
+            "icon": {
+                "path": "update_variable_value.svg#Dark",
+                "color": "#d13393"
+            },
+            "id": "813cc231-61a7-4217-a9d6-a5a656b09095",
+            "z": 2000010,
+            "name": { "type": "String", "value": "Update Variable Value 2" },
+            "stepDescription": {
+                "type": "String",
+                "value": "CHANGE DOC NAME TO DOCUMENT CATEGORY ON DEPLOY"
+            },
+            "notifyOnException": { "type": "Bool", "value": true },
+            "variableUpdates": {
+                "type": "VariableUpdate",
+                "value": [
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "String",
+                                "value": "New_Doc_Path"
+                            }
+                        },
+                        "variableValue": {
+                            "type": "Expression",
+                            "value": {
+                                "code": "string last_name = GetVariableValue(\"Last_Name\");\r\nstring first_name = GetVariableValue(\"First_Name\");\r\nstring employee_id = GetVariableValue(\"Employee_ID\");\r\n\r\nreturn String.Format(\"/PMH/Alta Hospitals/Human Resources/Alta Corp/Active/{0}, {1} - {2}\", last_name, first_name, employee_id);",
+                                "returnType": "System.Object",
+                                "additionalCode": ""
+                            }
+                        }
+                    },
+                    {
+                        "variableToConfigure": {
+                            "type": "Variable",
+                            "value": {
+                                "type": "String",
+                                "value": "New_Doc_Category"
+                            }
+                        },
+                        "variableValue": {
+                            "type": "Expression",
+                            "value": {
+                                "code": "GetVariableValue(\"Doc.Documents.Document.PMHEmployeeFileAltaHR.DocumentName\");",
+                                "returnType": "System.Object",
+                                "additionalCode": ""
+                            },
+                            "ismodified": true
+                        }
+                    }
+                ]
+            },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Update Variable\nValue 2",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 1,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 28
+                },
+                ".descriptionbox": {
+                    "width": 150,
+                    "height": 54,
+                    "rx": 3,
+                    "ry": 3,
+                    "x": -75,
+                    "y": -8,
+                    "fill": "#212121"
+                },
+                ".descriptiontext": {
+                    "text": "CHANGE DOC NAME TO\nDOCUMENT CATEGORY\nON DEPLOY",
+                    "font-size": 11,
+                    "fill": "#fff",
+                    "lineHeight": 14
+                },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/update_variable_value.svg#Dark"
+                },
+                "svg": { "color": "#d13393", "fill": "#fff" },
+                "rect": { "fill": "#d13393" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 1619, "y": 69 },
+            "angle": 0,
+            "activityName": "CopyMoveDocumentActivity",
+            "group": "engineActivities",
+            "icon": {
+                "path": "copy_move_document.svg#Dark",
+                "color": "#f7b618"
+            },
+            "id": "43b0740a-f195-4861-b08e-351cebf9efeb",
+            "z": 2000011,
+            "name": { "type": "String", "value": "Copy or Move Document 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "action": { "type": "String", "value": "move" },
+            "sourceDocument": {
+                "type": "Document",
+                "value": [
+                    {
+                        "type": "Variable",
+                        "value": { "type": "Xml", "value": "Doc" }
+                    }
+                ]
+            },
+            "targetFolder": {
+                "type": "Folder",
+                "value": [
+                    {
+                        "type": "Variable",
+                        "value": {
+                            "type": "Xml",
+                            "value": "New_Doc_Destination"
+                        }
+                    }
+                ]
+            },
+            "outputDocuments": { "type": "Variable" },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Copy or Move\nDocument 1",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/copy_move_document.svg#Dark"
+                },
+                "svg": { "color": "#f7b618", "fill": "#fff" },
+                "rect": { "fill": "#f7b618" },
+                ".step-container": { "data-error-state": false }
+            }
+        },
+        {
+            "size": { "width": 100, "height": 100 },
+            "content": "",
+            "type": "springcm.Step",
+            "position": { "x": 1396, "y": 70 },
+            "angle": 0,
+            "activityName": "CreateFolderActivity",
+            "group": "engineActivities",
+            "icon": { "path": "create_folder.svg#Dark", "color": "#e98824" },
+            "id": "f4b7adf4-140c-4bee-80a7-d998fd660c3c",
+            "z": 2000014,
+            "name": { "type": "String", "value": "Create Folder 1" },
+            "stepDescription": { "type": "String", "value": "" },
+            "newFolder": {
+                "type": "Expression",
+                "value": {
+                    "code": "GetVariableValue(\"New_Doc_Category\");",
+                    "returnType": "System.Object",
+                    "additionalCode": ""
+                }
+            },
+            "description": { "type": "String", "value": "" },
+            "parentFolder": {
+                "type": "Folder",
+                "value": [
+                    {
+                        "type": "Variable",
+                        "value": { "type": "String", "value": "New_Doc_Path" }
+                    }
+                ]
+            },
+            "returnExisting": { "type": "Bool", "value": true },
+            "inheritLimitedAttributeGroups": { "type": "Bool", "value": false },
+            "outputFolders": {
+                "type": "Variable",
+                "value": { "type": "Xml", "value": "New_Doc_Destination" }
+            },
+            "limitedAttributeGroups": { "type": "MetadataGroup" },
+            "attrs": {
+                ".steptext": {
+                    "ref-y": ".66",
+                    "y-alignment": "middle",
+                    "text": "Create Folder 1",
+                    "lineHeight": "1.4em"
+                },
+                ".description": {
+                    "opacity": 0,
+                    "ref": ".step-container",
+                    "ref-x": 0.5,
+                    "ref-dy": 0
+                },
+                ".descriptionbox": {
+                    "width": 0,
+                    "height": 0,
+                    "rx": 0,
+                    "ry": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                ".descriptiontext": { "text": "" },
+                "use": {
+                    "xlink:href": "/atlassupport/scripts/jointjs/svg/create_folder.svg#Dark"
+                },
+                "svg": { "color": "#e98824", "fill": "#fff" },
+                "rect": { "fill": "#e98824" },
+                ".step-container": { "data-error-state": false }
+            }
+        }
+    ]
+}

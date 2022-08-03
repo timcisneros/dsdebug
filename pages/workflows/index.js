@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useData } from '../src/contexts/DataContext';
-import WorkflowItem from '../components/WorkflowItem';
+import { useData } from '../../src/contexts/DataContext';
+import WorkflowItem from '../../components/WorkflowItem';
 import { IconButton } from '@chakra-ui/button';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 import { Grid, GridItem } from '@chakra-ui/react';

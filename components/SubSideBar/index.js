@@ -32,11 +32,13 @@ const SubSideBar = () => {
                             fontWeight: 'bold',
                         }}
                     >
+                        {console.log(ae.data)}
                         {ae.data.label}
                     </h1>
                     <div>
                         {ae.data.vars?.value.map((v, i) => {
                             let varConfigure =
+                                v.variableToConfigure.value.variable?.value ||
                                 v.variableToConfigure.value.value;
                             let varValue = v.variableValue.value.value;
                             const varType = v.variableValue.type;
@@ -64,7 +66,7 @@ const SubSideBar = () => {
                                     ?.groupName || ''
                             }`;
                             const metadataValue =
-                                m.variableValue.value.value ||
+                                m.variableValue.value?.value ||
                                 m.variableValue.value;
                             return (
                                 <SubSideBarItem
@@ -141,6 +143,21 @@ const SubSideBar = () => {
                                         key={`pf${ae.id}`}
                                         itemConfigure={parentFolderConfigure}
                                         itemValue={parentFolderValue}
+                                        selectedVariable={selectedVariable}
+                                    />
+                                );
+                            })()}
+                        {ae.data.newFolder?.value &&
+                            (function () {
+                                const nf = ae.data.newFolder;
+                                const newFolderConfigure = `New Folder [${nf.type}]`;
+                                const newFolderValue =
+                                    nf.value?.code || 'No value';
+                                return (
+                                    <SubSideBarItem
+                                        key={`nf${ae.id}`}
+                                        itemConfigure={newFolderConfigure}
+                                        itemValue={newFolderValue}
                                         selectedVariable={selectedVariable}
                                     />
                                 );

@@ -13,6 +13,7 @@ const DataProvider = ({ children }) => {
     const [dataList, setDataList] = useState([]);
     const [workflowName, setWorkflowName] = useState();
     const [definedVariables, setDefinedVariables] = useState([]);
+    const [fileName, setFileName] = useState('');
     const toast = useToast();
 
     // Used for uploading a file
@@ -21,6 +22,7 @@ const DataProvider = ({ children }) => {
             const reader = new FileReader();
             reader.onload = onReaderLoad;
             reader.readAsText(files[i]);
+            setFileName(files[i].name);
         }
     };
 
@@ -65,8 +67,8 @@ const DataProvider = ({ children }) => {
             // Reset data from what was uploaded to last opened readable file
             setData(dataList[0].data);
             toast({
-                title: 'File(s) Unreadable',
-                description: `One or more files could not be read and did not upload`,
+                title: 'File Unreadable',
+                description: fileName,
                 status: 'error',
                 duration: null,
                 isClosable: true,

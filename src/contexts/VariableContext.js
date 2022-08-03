@@ -36,10 +36,10 @@ const VariableProvider = ({ children }) => {
         const vars = [];
 
         const varValues = [];
-
-        data.cells.map(
+        data.cells?.map(
             (c) =>
                 c.type === 'springcm.Step' &&
+                // VARIABLES (user defined)
                 vars.push({
                     id: c.id,
                     stepName: c.name.value,
@@ -49,12 +49,16 @@ const VariableProvider = ({ children }) => {
                             c.variableUpdates.value.map((cv) =>
                                 varValues.push({
                                     id: c.id,
-                                    name: cv.variableToConfigure.value.value,
+                                    name:
+                                        cv.variableToConfigure.value.variable
+                                            ?.value ||
+                                        cv.variableToConfigure.value.value,
                                     type: cv.variableValue.type,
                                     value:
-                                        cv.variableValue.value.value ||
-                                        cv.variableValue.value.code ||
-                                        cv.variableValue.value,
+                                        cv.variableValue.value?.value ||
+                                        cv.variableValue.value?.code ||
+                                        cv.variableValue.value ||
+                                        'No Value',
                                 })
                             )) ||
                         '',
@@ -65,18 +69,20 @@ const VariableProvider = ({ children }) => {
                                 id: c.id,
                                 name: cm.metadataToConfigure.value.value,
                                 type: cm.variableValue.type,
-                                value: cm.variableValue.value.value,
+                                value:
+                                    cm.variableValue.value?.value || 'No Value',
                             })
                         ),
+                    // FOLDERS
                     folder:
                         c.outputFolders?.value &&
                         varValues.push({
                             id: c.id,
                             name: c.outputFolders.value.value,
                             type: c.outputFolders.type,
-                            value: c.outputFolders.value.value,
+                            value: c.outputFolders.value.value || 'No Value',
                         }),
-                    // Push a document to variable value list
+                    // DOCUMENTS
                     document:
                         c.documents?.value.length > 1
                             ? 'ERROR: MORE THAN ONE DOCUMENT FOUND'
@@ -99,7 +105,7 @@ const VariableProvider = ({ children }) => {
                             id: c.id,
                             name: c.valueVariable.value.value,
                             type: c.valueVariable.type,
-                            value: c.valueVariable.value.value,
+                            value: c.valueVariable.value.value || 'No Value',
                         }),
                     outputDocuments:
                         c.outputDocuments?.value &&
@@ -107,7 +113,7 @@ const VariableProvider = ({ children }) => {
                             id: c.id,
                             name: c.outputDocuments.value.value,
                             type: c.outputDocuments.type,
-                            value: c.outputDocuments.value.value,
+                            value: c.outputDocuments.value.value || 'No Value',
                         }),
                     parentFolder:
                         c.parentFolder?.value &&
@@ -115,7 +121,17 @@ const VariableProvider = ({ children }) => {
                             id: c.id,
                             name: c.parentFolder.value.value,
                             type: c.parentFolder.type,
-                            value: c.parentFolder.value.value,
+                            value: c.parentFolder.value.value || 'No Value',
+                        }),
+                    newFolder:
+                        c.newFolder?.value &&
+                        varValues.push({
+                            id: c.id,
+                            name: 'New Folder',
+                            value:
+                                c.newFolder.value.value ||
+                                c.newFolder.value.code ||
+                                'No Value',
                         }),
                     // possibly add subject, sender, recipient, and notes from Email step in the future
                 })
