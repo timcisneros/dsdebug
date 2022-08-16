@@ -62,6 +62,7 @@ const VariableProvider = ({ children }) => {
                                 })
                             )) ||
                         '',
+                    // ATTRIBUTE GROUPS
                     metadata:
                         c.metadata?.value &&
                         c.metadata.value.map((cm) =>
@@ -99,6 +100,7 @@ const VariableProvider = ({ children }) => {
                                           'No Value',
                                   })) ||
                               '',
+                    // OUTPUT VARIABLES
                     outputVariable:
                         c.valueVariable?.value &&
                         varValues.push({
@@ -107,6 +109,7 @@ const VariableProvider = ({ children }) => {
                             type: c.valueVariable.type,
                             value: c.valueVariable.value.value || 'No Value',
                         }),
+                    // OUTPUT DOCUMENTS
                     outputDocuments:
                         c.outputDocuments?.value &&
                         varValues.push({
@@ -115,6 +118,7 @@ const VariableProvider = ({ children }) => {
                             type: c.outputDocuments.type,
                             value: c.outputDocuments.value.value || 'No Value',
                         }),
+                    // PARENT FOLDERS
                     parentFolder:
                         c.parentFolder?.value &&
                         varValues.push({
@@ -123,6 +127,7 @@ const VariableProvider = ({ children }) => {
                             type: c.parentFolder.type,
                             value: c.parentFolder.value.value || 'No Value',
                         }),
+                    // FOLDER
                     newFolder:
                         c.newFolder?.value &&
                         varValues.push({

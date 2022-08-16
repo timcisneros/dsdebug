@@ -32,7 +32,6 @@ const SubSideBar = () => {
                             fontWeight: 'bold',
                         }}
                     >
-                        {console.log(ae.data)}
                         {ae.data.label}
                     </h1>
                     <div>
@@ -152,7 +151,7 @@ const SubSideBar = () => {
                                 const nf = ae.data.newFolder;
                                 const newFolderConfigure = `New Folder [${nf.type}]`;
                                 const newFolderValue =
-                                    nf.value?.code || 'No value';
+                                    nf.value?.code || nf.value || 'No value';
                                 return (
                                     <SubSideBarItem
                                         key={`nf${ae.id}`}

@@ -24,12 +24,3 @@ a {
 .selected {
     background-color: #fdff6c;
 }
-
-.upload {
-    cursor: pointer;
-    position: absolute;
-    z-index: 1000;
-    width: 2rem;
-    top: 20px;
-    left: 20px;
-}
