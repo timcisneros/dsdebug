@@ -25,8 +25,8 @@ const GlobalSearch = ({ children }) => {
     const handleSearchResults = (value) => {
         setSearchWord(value);
 
-        const newFilter = uniqueVars.filter((uv) =>
-            uv.value?.toLowerCase().includes(value.toLowerCase())
+        const newFilter = variables.filter((v) =>
+            v.value?.toLowerCase().includes(value.toLowerCase())
         );
 
         if (value === '') {
