@@ -24,3 +24,11 @@ a {
 .selected {
     background-color: #fdff6c;
 }
+
+.react-flow__node {
+    cursor: pointer !important;
+}
+
+.react-flow__handle {
+    cursor: default !important;
+}

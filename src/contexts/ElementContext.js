@@ -22,6 +22,7 @@ const ElementProvider = ({ children }) => {
                         return mappedElements.push({
                             id: c.id,
                             type: 'stepNode',
+                            selectable: 'true',
                             data: {
                                 label: c.name.value,
                                 width: c.size.width,

@@ -13,20 +13,20 @@ import {
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useVariable } from '../../src/contexts/VariableContext';
+import { useToast } from '@chakra-ui/react';
 
 const GlobalSearch = ({ children }) => {
     const [filteredData, setFilteredData] = useState([]);
     const [searchWord, setSearchWord] = useState('');
-
     const { variables, selectVariable } = useVariable();
-
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const toast = useToast();
 
-    const handleSearchResults = (value = 'test') => {
+    const handleSearchResults = (value) => {
         setSearchWord(value);
 
-        const newFilter = variables.filter((v) =>
-            v.value?.toLowerCase().includes(value.toLowerCase())
+        const newFilter = uniqueVars.filter((uv) =>
+            uv.value?.toLowerCase().includes(value.toLowerCase())
         );
 
         if (value === '') {
@@ -65,8 +65,18 @@ const GlobalSearch = ({ children }) => {
                                         <Box
                                             cursor="pointer"
                                             onClick={() => {
-                                                selectVariable(fd.value);
-                                                onClose();
+                                                try {
+                                                    selectVariable(fd.value);
+                                                    onClose();
+                                                } catch (error) {
+                                                    toast({
+                                                        title: "Search can't be completed",
+                                                        description: error,
+                                                        status: 'error',
+                                                        duration: null,
+                                                        isClosable: true,
+                                                    });
+                                                }
                                             }}
                                             padding="2"
                                             key={i}

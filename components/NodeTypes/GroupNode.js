@@ -4,6 +4,7 @@ export default memo(function GroupNode({ data }) {
     return (
         <>
             <div
+                className="nodrag"
                 style={{
                     border: '3px dashed #8c8c8c',
                     borderRadius: 2,
