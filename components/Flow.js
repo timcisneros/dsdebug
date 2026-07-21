@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import ReactFlow, { useStoreActions, Controls } from 'react-flow-renderer';
+import { useEffect, useMemo } from 'react';
+import { ReactFlow, Controls } from '@xyflow/react';
 
 import StepNode from './NodeTypes/StepNode';
 import DiamondNode from './NodeTypes/DiamondNode';
@@ -21,21 +21,28 @@ function Flow() {
 
     const { elements, activeElements } = useElement();
 
-    const setSelectedElements = useStoreActions(
-        (actions) => actions.setSelectedElements
-    );
-
     useEffect(() => {
         getElementsFromVariable();
-    }, [selectedVariable]);
+    }, [selectedVariable, getElementsFromVariable]);
 
-    // useEffect(() => {
-    //     setElements(getElements());
-    // }, [getElements]);
-
-    useEffect(() => {
-        setSelectedElements(activeElements);
-    }, [activeElements, setSelectedElements]);
+    const activeElementIds = useMemo(
+        () => new Set(activeElements.map((element) => element.id)),
+        [activeElements]
+    );
+    const nodes = useMemo(
+        () =>
+            elements
+                .filter((element) => !element.source)
+                .map((node) => ({
+                    ...node,
+                    selected: activeElementIds.has(node.id),
+                })),
+        [activeElementIds, elements]
+    );
+    const edges = useMemo(
+        () => elements.filter((element) => element.source),
+        [elements]
+    );
 
     const onPaneClick = () => {
         selectVariable(null);
@@ -44,7 +51,8 @@ function Flow() {
     return (
         <div style={{ height: '100vh' }}>
             <ReactFlow
-                elements={elements}
+                nodes={nodes}
+                edges={edges}
                 nodeTypes={nodeTypes}
                 elementsSelectable={false}
                 nodesDraggable={false}

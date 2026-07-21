@@ -1,46 +1,45 @@
 import { useEffect, useState } from 'react';
-import { useZoomPanHelper } from 'react-flow-renderer';
-import { Select } from '@chakra-ui/react';
+import { useReactFlow } from '@xyflow/react';
+import { NativeSelect } from '@chakra-ui/react';
 import { useVariable } from '../../src/contexts/VariableContext';
 import { useData } from '../../src/contexts/DataContext';
 
 const WorkflowSelect = () => {
-    const { fitView } = useZoomPanHelper();
+    const { fitView } = useReactFlow();
     const { setData, dataList } = useData();
     const { selectVariable } = useVariable();
-    const [value, setValue] = useState('');
-
-    useEffect(() => {
-        selectVariable(null);
-        setValue(dataList[0]?.name);
-    }, [dataList]);
+    const [selectedWorkflowName, setSelectedWorkflowName] = useState('');
+    const value = dataList.some((item) => item.name === selectedWorkflowName)
+        ? selectedWorkflowName
+        : dataList[0]?.name || '';
 
     const handleChange = (e) => {
         selectVariable(null);
-        setValue(e.target.value);
+        setSelectedWorkflowName(e.target.value);
         const foundData = dataList.find((dl) => dl.name === e.target.value);
         setData(foundData.data);
     };
 
     useEffect(() => {
         setTimeout(() => fitView(), 1);
-    }, [value]);
+    }, [fitView, value]);
 
     return (
-        <Select
-            variant="filled"
-            textOverflow="ellipsis"
-            onChange={handleChange}
-            width="100%"
-            backgroundColor="#ffffff"
-            value={value}
-        >
-            {dataList.map((dl) => (
-                <option key={dl.name} value={dl.name}>
-                    {dl.name}
-                </option>
-            ))}
-        </Select>
+        <NativeSelect.Root width="100%" variant="subtle">
+            <NativeSelect.Field
+                textOverflow="ellipsis"
+                onChange={handleChange}
+                backgroundColor="#ffffff"
+                value={value}
+            >
+                {dataList.map((dl) => (
+                    <option key={dl.name} value={dl.name}>
+                        {dl.name}
+                    </option>
+                ))}
+            </NativeSelect.Field>
+            <NativeSelect.Indicator />
+        </NativeSelect.Root>
     );
 };
 

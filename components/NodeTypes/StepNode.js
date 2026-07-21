@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { Handle } from 'react-flow-renderer';
+import { Handle, Position } from '@xyflow/react';
 
 export default memo(function StepNode({ data }) {
     return (
         <>
             <Handle
                 type="target"
-                position="left"
+                position={Position.Left}
                 style={{ background: '#555' }}
             />
             <div
@@ -49,7 +49,7 @@ export default memo(function StepNode({ data }) {
             </div>
             <Handle
                 type="source"
-                position="right"
+                position={Position.Right}
                 id="a"
                 style={{ background: '#555' }}
             />

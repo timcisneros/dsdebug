@@ -1,4 +1,10 @@
-import { useState, createContext, useContext, useEffect } from 'react';
+import {
+    useCallback,
+    useState,
+    createContext,
+    useContext,
+    useEffect,
+} from 'react';
 import { useData } from './DataContext';
 import { useElement } from './ElementContext';
 
@@ -13,26 +19,21 @@ const VariableProvider = ({ children }) => {
     const [variables, setVariables] = useState([]);
     const [variableList, setVariableList] = useState([]);
     const [unusedVars, setUnusedVars] = useState(true);
-    const [unusedVarsMenuItemLabel, setUnusedVarsMenuItemLabel] =
-        useState('Show Unused Vars');
 
     const { data, workflowName, getAddedWorkflowNames, definedVariables } =
         useData();
     const { elements, setActiveElements, getElements } = useElement();
 
-    // Used for show/hide unused vars menu option
-    useEffect(() => {
-        setUnusedVarsMenuItemLabel(
-            unusedVars ? 'Show Unused Vars' : 'Hide Unused Vars'
-        );
-    }, [unusedVars]);
+    const unusedVarsMenuItemLabel = unusedVars
+        ? 'Show Unused Vars'
+        : 'Hide Unused Vars';
 
-    const handleShowUnusedVars = () => {
-        setUnusedVars(!unusedVars);
-    };
+    const handleShowUnusedVars = useCallback(() => {
+        setUnusedVars((current) => !current);
+    }, []);
     //
 
-    const getStepVariables = () => {
+    const getStepVariables = useCallback(() => {
         const vars = [];
 
         const varValues = [];
@@ -146,7 +147,7 @@ const VariableProvider = ({ children }) => {
 
         // Set list of all defined variables in workflow
         setVariableList(definedVariables);
-    };
+    }, [data, definedVariables]);
 
     // Runs when workflow is changed from dropdown
     useEffect(() => {
@@ -154,15 +155,15 @@ const VariableProvider = ({ children }) => {
             getAddedWorkflowNames();
             getElements();
         }
-    }, [data]);
+    }, [data, getAddedWorkflowNames, getElements]);
     //
 
     useEffect(() => {
         getStepVariables();
-    }, [workflowName]);
+    }, [getStepVariables, workflowName]);
 
     // Handles higlighting steps when a variable is selected
-    const getElementsFromVariable = () => {
+    const getElementsFromVariable = useCallback(() => {
         const variableData = variables
             .filter(
                 (vs) =>
@@ -176,12 +177,12 @@ const VariableProvider = ({ children }) => {
             variableData.includes(e.id)
         );
         setActiveElements(filteredElements);
-    };
+    }, [elements, selectedVariable, setActiveElements, variables]);
     //
 
-    const selectVariable = (v) => {
+    const selectVariable = useCallback((v) => {
         setSelectedVariable(v);
-    };
+    }, []);
 
     const value = {
         selectedVariable,

@@ -1,4 +1,4 @@
-import { Divider, Tooltip } from '@chakra-ui/react';
+import { Separator } from '@chakra-ui/react';
 
 const SideBarItem = ({
     variableListItem,
@@ -53,12 +53,10 @@ const SideBarItem = ({
                                 : '#8e8e8e',
                     }}
                 >
-                    <Tooltip hasArrow label={variableListItem} placement="top">
-                        {variableListItem}
-                    </Tooltip>
+                    <span title={variableListItem}>{variableListItem}</span>
                 </div>
             </div>
-            <Divider />
+            <Separator />
         </div>
     );
 };

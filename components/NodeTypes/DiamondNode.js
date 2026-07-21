@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { Handle } from 'react-flow-renderer';
+import { Handle, Position } from '@xyflow/react';
 
 export default memo(function DiamondNode({ data }) {
     return (
         <>
             <Handle
                 type="target"
-                position="top"
+                position={Position.Top}
                 style={{ background: '#555' }}
             />
             <div
@@ -40,7 +40,7 @@ export default memo(function DiamondNode({ data }) {
             </div>
             <Handle
                 type="source"
-                position="bottom"
+                position={Position.Bottom}
                 id="a"
                 style={{ background: '#555' }}
             />

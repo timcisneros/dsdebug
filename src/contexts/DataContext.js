@@ -1,5 +1,11 @@
-import { useState, createContext, useContext } from 'react';
-import { useToast } from '@chakra-ui/react';
+import {
+    useCallback,
+    useRef,
+    useState,
+    createContext,
+    useContext,
+} from 'react';
+import { toaster } from '../../components/ui/Toaster';
 import initialData from '../../data/sample_data.json';
 
 const DataContext = createContext();
@@ -14,7 +20,7 @@ const DataProvider = ({ children }) => {
     const [workflowName, setWorkflowName] = useState();
     const [definedVariables, setDefinedVariables] = useState([]);
     const [fileName, setFileName] = useState('');
-    const toast = useToast();
+    const lastValidData = useRef(initialData);
 
     // Used for uploading a file
     const handleReadFile = (files) => {
@@ -35,7 +41,7 @@ const DataProvider = ({ children }) => {
     };
     //
 
-    const getAddedWorkflowNames = () => {
+    const getAddedWorkflowNames = useCallback(() => {
         let startActivity = '';
 
         try {
@@ -47,34 +53,38 @@ const DataProvider = ({ children }) => {
 
             setWorkflowName(wfName);
 
-            const allDataList = [{ name: wfName, data }, ...dataList];
+            setDataList((currentDataList) => {
+                const allDataList = [
+                    { name: wfName, data },
+                    ...currentDataList,
+                ];
 
-            const filteredDataList = allDataList.filter(
-                (adlf, i) =>
-                    allDataList.map((adlm) => adlm.name).indexOf(adlf.name) ===
-                    i
-            );
-
-            setDataList(filteredDataList);
+                return allDataList.filter(
+                    (item, index) =>
+                        allDataList
+                            .map((candidate) => candidate.name)
+                            .indexOf(item.name) === index
+                );
+            });
 
             setDefinedVariables(
                 startActivity.definedVariables.value.map((dv) => dv.value.name)
             );
+            lastValidData.current = data;
         } catch (error) {
             // Temporary solution to remove error alerts for unreadable files
             window.alert = function () {};
             console.error(error);
             // Reset data from what was uploaded to last opened readable file
-            setData(dataList[0].data);
-            toast({
+            setData(lastValidData.current);
+            toaster.create({
                 title: 'File Unreadable',
                 description: fileName,
-                status: 'error',
-                duration: null,
-                isClosable: true,
+                type: 'error',
+                closable: true,
             });
         }
-    };
+    }, [data, fileName]);
 
     const value = {
         data,

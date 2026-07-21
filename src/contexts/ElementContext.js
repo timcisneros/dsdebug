@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useCallback, useState, createContext, useContext } from 'react';
 import { useData } from './DataContext';
 
 const ElementContext = createContext();
@@ -13,7 +13,7 @@ const ElementProvider = ({ children }) => {
 
     const { data } = useData();
 
-    const getElements = () => {
+    const getElements = useCallback(() => {
         let mappedElements = [];
         try {
             data.cells.map((c, i) => {
@@ -94,7 +94,7 @@ const ElementProvider = ({ children }) => {
         }
 
         setElements(mappedElements);
-    };
+    }, [data]);
 
     const value = {
         elements,

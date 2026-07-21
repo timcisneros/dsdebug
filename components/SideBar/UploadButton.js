@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useData } from '../../src/contexts/DataContext';
-import { Box, Text } from '@chakra-ui/layout';
+import { Box, Text } from '@chakra-ui/react';
 
 const UploadButton = () => {
     const { handleReadFile } = useData();

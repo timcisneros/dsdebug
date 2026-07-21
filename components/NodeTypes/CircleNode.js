@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Handle } from 'react-flow-renderer';
+import { Handle, Position } from '@xyflow/react';
 
 export default memo(function CircleNode({ data }) {
     const stepColor = data.label.includes('Start') ? '#80c904' : '#2a9df4';
@@ -26,7 +26,7 @@ export default memo(function CircleNode({ data }) {
             </div>
             <Handle
                 type="source"
-                position="right"
+                position={Position.Right}
                 id="a"
                 style={{ background: '#555' }}
             />

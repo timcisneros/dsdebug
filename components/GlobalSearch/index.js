@@ -1,26 +1,22 @@
 import { useState } from 'react';
-import { useDisclosure } from '@chakra-ui/hooks';
 import {
     Box,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    InputGroup,
-    InputLeftElement,
+    Dialog,
     Input,
+    Portal,
     Text,
-    Divider,
+    Separator,
+    useDisclosure,
 } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
+import { LuSearch } from 'react-icons/lu';
 import { useVariable } from '../../src/contexts/VariableContext';
-import { useToast } from '@chakra-ui/react';
+import { toaster } from '../ui/Toaster';
 
 const GlobalSearch = ({ children }) => {
     const [filteredData, setFilteredData] = useState([]);
     const [searchWord, setSearchWord] = useState('');
     const { variables, selectVariable } = useVariable();
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const toast = useToast();
+    const { open, onOpen, onClose } = useDisclosure();
 
     const handleSearchResults = (value) => {
         setSearchWord(value);
@@ -40,13 +36,26 @@ const GlobalSearch = ({ children }) => {
         <Box width="100%" height="100%">
             <div onClick={onOpen}>{children}</div>
 
-            <Modal size="lg" isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <InputGroup size="lg" variant="filled">
-                        <InputLeftElement pointerEvents="none">
-                            <SearchIcon color="gray.300" />
-                        </InputLeftElement>
+            <Dialog.Root
+                size="lg"
+                open={open}
+                onOpenChange={(details) => !details.open && onClose()}
+            >
+                <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                        <Dialog.Content>
+                            <Box position="relative">
+                                <Box
+                                    color="gray.400"
+                                    position="absolute"
+                                    left="4"
+                                    top="50%"
+                                    transform="translateY(-50%)"
+                                    zIndex="1"
+                                >
+                                    <LuSearch />
+                                </Box>
                         <Input
                             type="text"
                             onChange={(e) =>
@@ -55,8 +64,11 @@ const GlobalSearch = ({ children }) => {
                             value={searchWord}
                             placeholder="Search Variables"
                             autoComplete="off"
+                            size="lg"
+                            variant="subtle"
+                            paddingLeft="12"
                         />
-                    </InputGroup>
+                            </Box>
                     <Box>
                         {filteredData.length != 0 && (
                             <Box padding="0">
@@ -69,12 +81,12 @@ const GlobalSearch = ({ children }) => {
                                                     selectVariable(fd.value);
                                                     onClose();
                                                 } catch (error) {
-                                                    toast({
+                                                    toaster.create({
                                                         title: "Search can't be completed",
-                                                        description: error,
-                                                        status: 'error',
-                                                        duration: null,
-                                                        isClosable: true,
+                                                        description:
+                                                            error.message,
+                                                        type: 'error',
+                                                        closable: true,
                                                     });
                                                 }
                                             }}
@@ -86,7 +98,7 @@ const GlobalSearch = ({ children }) => {
                                             </Text>
 
                                             {i !== filteredData.length - 1 && (
-                                                <Divider />
+                                                <Separator />
                                             )}
                                         </Box>
                                     );
@@ -94,8 +106,10 @@ const GlobalSearch = ({ children }) => {
                             </Box>
                         )}
                     </Box>
-                </ModalContent>
-            </Modal>
+                        </Dialog.Content>
+                    </Dialog.Positioner>
+                </Portal>
+            </Dialog.Root>
         </Box>
     );
 };
